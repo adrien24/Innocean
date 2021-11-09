@@ -19,7 +19,7 @@
 
     </transition>
     <FooterP/>
-
+    <GoogleMap />
   </div>
 </template>
 
@@ -27,13 +27,18 @@
 
 import FooterP from "./components/FooterP";
 import Marque from "./components/Marquee";
+import GoogleMap from './components/GoogleMap.vue'
+
+
+
 
 
 export default {
   name: 'App',
   components: {
     FooterP,
-    Marque
+    Marque,
+    GoogleMap
   },
 
 
