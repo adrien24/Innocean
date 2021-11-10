@@ -10,9 +10,7 @@
 export default {
   name: "FooterP",
 
-  created(){
-    setTimeout( () => this.img.push(0), 1000);
-  }
+
 
 
 }
