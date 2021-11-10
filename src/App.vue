@@ -7,6 +7,7 @@
 
 
 
+
     <Marque/>
 
     <transition
@@ -51,6 +52,7 @@ export default {
 </script>
 
 <style>
+@import "assets/css/style-reset.css";
 
 
 
