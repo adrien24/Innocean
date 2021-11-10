@@ -9,7 +9,7 @@
     <Marque/>
     <FooterP/>
     <jour />
-    <p>{{currentDate()}}</p>
+    <p>{{message}}</p>
 
 
     <router-view/>
@@ -23,6 +23,7 @@ import Marque from "./components/Marquee";
 import GoogleMap from './components/GoogleMap.vue'
 import jour from './components/jour'
 import moment from 'moment'
+import Vue from "vue";
 
 
 
@@ -37,32 +38,26 @@ export default {
 
 
 
-  methods: {
-    currentDate() {
-      const current = new Date();
-      const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}/${current.getHours()}/${current.getMinutes()}/${current.getSeconds()}`;
-      return date;
-    },
-      refresh() {
-      this.date = setInterval(() => {
-        const current = new Date();
-        const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}/${current.getHours()}/${current.getMinutes()}/${current.getSeconds()}`;
-        return date;
-         }, 1000);
-      }
-
-  },
-
-    created () {
-  this.refresh()
-    }
-
-
-
-
-
 
 }
+new Vue({
+  el: '#app',
+  data: {
+    message:""
+  },
+  methods:{
+    testFunction: function () {
+      var v = this;
+      setInterval(function () {
+        v.message = new Date().toLocaleTimeString();
+      }, 1000);
+    }
+  },
+  mounted () {
+    this.testFunction()
+  }
+});
+
 
 
 </script>

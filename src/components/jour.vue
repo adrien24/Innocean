@@ -8,17 +8,30 @@
 
 <script>
 
-import moment from 'moment'
+
+import Vue from "vue";
 
 export default {
   name: "jour",
+}
 
-  methods: {
-    currentDateTime() {
-      return moment().format('MMMM Do YYYY, h:mm:ss a')
+new Vue({
+  el: '#app',
+  data: {
+    message:""
+  },
+  methods:{
+    testFunction: function () {
+      var v = this;
+      setInterval(function () {
+        v.message = new Date().toLocaleTimeString();
+      }, 1000);
     }
   },
-}
+  mounted () {
+    this.testFunction()
+  }
+});
 
 </script>
 
