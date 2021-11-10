@@ -8,13 +8,12 @@
       :center='center'
       :zoom='12'
       style='width:50%;  height: 800px;'
-      ref="roadmap"
-      map-type-id="roadmap"
       scaleControl="false"
       zoomControl="false"
+      ref="roadmap"
+      :options="{ mapId: 'a133224cece007d1' }"
 
     />
-
     <div id="map"></div>
 
   </div>
@@ -35,11 +34,12 @@ export default {
 
       const trafficLayer = new google.maps.TrafficLayer()
       trafficLayer.setMap(map)
-
     })
+
+
   },
   methods: {
-    geolocate: function() {
+    geolocate: function () {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
           lat: position.coords.latitude,
@@ -47,12 +47,8 @@ export default {
         };
       });
     },
-  },
 
-
-
-
-
+  }
 }
 </script>
 
