@@ -9,7 +9,7 @@
     <Marque/>
     <FooterP/>
     <jour />
-    {{currentDateTime()}}
+    <p>{{currentDate()}}</p>
 
 
     <router-view/>
@@ -35,12 +35,27 @@ export default {
     jour
   },
 
+
+
   methods: {
-    currentDateTime() {
-      return moment().format('MMMM Do YYYY, h:mm:ss a')
-    }
+    currentDate() {
+      const current = new Date();
+      const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}/${current.getHours()}/${current.getMinutes()}/${current.getSeconds()}`;
+      return date;
+    },
+      refresh() {
+      this.date = setInterval(() => {
+        const current = new Date();
+        const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}/${current.getHours()}/${current.getMinutes()}/${current.getSeconds()}`;
+        return date;
+         }, 1000);
+      }
 
   },
+
+    created () {
+  this.refresh()
+    }
 
 
 
