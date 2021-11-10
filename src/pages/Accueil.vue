@@ -2,7 +2,7 @@
 
   <div class="Accueil">
     <router-link id="change" onclick="changer" to="/about">lala</router-link>
- <h1>lalalaalala</h1>
+
 
   </div>
 
