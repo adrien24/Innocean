@@ -20,7 +20,8 @@
 
     </transition>
     <FooterP/>
-    <GoogleMap />
+
+    <jour />
   </div>
 </template>
 
@@ -29,6 +30,7 @@
 import FooterP from "./components/FooterP";
 import Marque from "./components/Marquee";
 import GoogleMap from './components/GoogleMap.vue'
+import jour from './components/jour'
 
 
 
@@ -39,7 +41,8 @@ export default {
   components: {
     FooterP,
     Marque,
-    GoogleMap
+    GoogleMap,
+    jour
   },
 
 
