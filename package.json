@@ -14,9 +14,12 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "aos": "^2.3.4",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
     "rellax": "^1.12.1",
     "vue": "^2.6.12",
     "vue-loading-overlay": "^3.4.2",
+    "vue-moment": "^4.1.0",
     "vue-router": "^3.0.1",
     "vue2-google-maps": "^0.10.7",
     "vue2-smooth-scroll": "^1.5.0"
