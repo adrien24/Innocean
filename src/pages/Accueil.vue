@@ -2,33 +2,18 @@
 
   <div class="Accueil">
     <router-link id="change" onclick="changer" to="/about">lala</router-link>
-
-
   </div>
-
 
 </template>
 
 <script>
-
-
-
-
-
 export default {
   name: 'Accueil',
 
-  components: {
-
-  },
-
   created(){
     setTimeout( () => this.$router.push({ path: '/about'}), 5000);
-
   }
 }
-
-
 </script>
 
 
