@@ -1,32 +1,24 @@
 <template>
+
   <div id="jour">
-
-
-
-    {{moment().format('MMMM Do YYYY, h:mm:ss a')}}
-
-
-
+    {{currentDateTime()}}
   </div>
+
 </template>
 
 <script>
 
 import moment from 'moment'
 
-
 export default {
   name: "jour",
 
   methods: {
-    moment: function () {
-      return moment();
+    currentDateTime() {
+      return moment().format('MMMM Do YYYY, h:mm:ss a')
     }
   },
-
 }
-
-
 
 </script>
 

@@ -11,12 +11,9 @@
       scaleControl="false"
       zoomControl="false"
       ref="roadmap"
-      :options="{ mapId: 'a133224cece007d1' }"
-
-    />
-    <div id="map"></div>
-
+      :options="{ mapId: 'a133224cece007d1' }"/>
   </div>
+
 </template>
 
 <script>
@@ -35,9 +32,8 @@ export default {
       const trafficLayer = new google.maps.TrafficLayer()
       trafficLayer.setMap(map)
     })
-
-
   },
+
   methods: {
     geolocate: function () {
       navigator.geolocation.getCurrentPosition(position => {
@@ -47,9 +43,9 @@ export default {
         };
       });
     },
-
   }
 }
+
 </script>
 
 <style scoped>
