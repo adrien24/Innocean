@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-
+    <weather />
+    <jour />
     <slider />
 
     <router-link to="/">Accueil</router-link>
     <router-link to="/about">About</router-link>
-    <weather />
+
     <GoogleMap />
-    <jour />
+
 
 
 
