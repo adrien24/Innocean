@@ -4,15 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps'
-import VueMoment from 'vue-moment'
-import moment from 'moment-timezone'
+
 
 
 
 Vue.config.productionTip = false
-Vue.use(VueMoment, {
-  moment,
-})
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyClfxKXXv0Db2A4VcRd_Ta2yI1MuHuc9HA',

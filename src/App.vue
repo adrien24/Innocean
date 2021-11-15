@@ -1,16 +1,13 @@
 <template>
   <div id="app">
-
+    <slider />
     <img src="https://source.unsplash.com/random" width="100px" height="100px">
     <router-link to="/">Accueil</router-link>
     <router-link to="/about">About</router-link>
-<<<<<<< Updated upstream
-=======
 
-   
->>>>>>> Stashed changes
     <FooterP/>
     <jour />
+
 
 
 
@@ -19,6 +16,11 @@
 </template>
 
 <script>
+
+import GoogleMap from './components/GoogleMap.vue'
+import jour from './components/jour'
+import slider from "./components/slider";
+
 
 import FooterP from "./components/FooterP";
 import GoogleMap from './components/GoogleMap.vue'
@@ -30,11 +32,13 @@ import jour from './components/jour'
 export default {
   name: 'App',
   components: {
-    FooterP,
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
+    GoogleMap,
+    jour,
+    slider
+  },
+}
+    FooterP,
     GoogleMap,
     jour
   },
@@ -45,15 +49,10 @@ export default {
 
 
 
-
-}
-
-
 </script>
 
 <style>
 @import "assets/css/style-reset.css";
-
 
 
 
