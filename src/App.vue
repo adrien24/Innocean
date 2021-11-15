@@ -4,6 +4,11 @@
     <img src="https://source.unsplash.com/random" width="100px" height="100px">
     <router-link to="/">Accueil</router-link>
     <router-link to="/about">About</router-link>
+<<<<<<< Updated upstream
+=======
+
+   
+>>>>>>> Stashed changes
     <FooterP/>
     <jour />
 
@@ -26,6 +31,10 @@ export default {
   name: 'App',
   components: {
     FooterP,
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     GoogleMap,
     jour
   },
