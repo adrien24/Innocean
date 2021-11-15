@@ -16,13 +16,7 @@
 </template>
 
 <script>
-
-import GoogleMap from './components/GoogleMap.vue'
-import jour from './components/jour'
 import slider from "./components/slider";
-
-
-import FooterP from "./components/FooterP";
 import GoogleMap from './components/GoogleMap.vue'
 import jour from './components/jour'
 
@@ -32,16 +26,11 @@ import jour from './components/jour'
 export default {
   name: 'App',
   components: {
-
-    GoogleMap,
-    jour,
-    slider
-  },
-}
-    FooterP,
+    slider,
     GoogleMap,
     jour
   },
+}
 
 
 
