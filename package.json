@@ -16,6 +16,7 @@
     "@splidejs/splide": "^3.3.1",
     "@splidejs/vue-splide": "^0.5.7",
     "aos": "^2.3.4",
+    "axios": "^0.24.0",
     "hooper": "^0.3.4",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.34",

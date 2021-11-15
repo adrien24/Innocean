@@ -1,12 +1,14 @@
 <template>
   <div id="app">
+
     <slider />
-    <img src="https://source.unsplash.com/random" width="100px" height="100px">
+
     <router-link to="/">Accueil</router-link>
     <router-link to="/about">About</router-link>
-
-    <FooterP/>
+    <weather />
+    <GoogleMap />
     <jour />
+
 
 
 
@@ -19,6 +21,7 @@
 import slider from "./components/slider";
 import GoogleMap from './components/GoogleMap.vue'
 import jour from './components/jour'
+import weather from "./components/weather";
 
 
 
@@ -28,7 +31,8 @@ export default {
   components: {
     slider,
     GoogleMap,
-    jour
+    jour,
+    weather
   },
 }
 

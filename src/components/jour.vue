@@ -9,10 +9,8 @@
 </template>
 
 <script>
-
-
 export default {
-  el: '#intro',
+
   data() {
     return {
       timestamp: ""
