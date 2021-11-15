@@ -2,7 +2,9 @@
 
   <div id="jour">
 
-      <h1>{{ timestamp }}</h1>
+      <h1></h1>
+    <span>{{moment().format('Do MMMM YYYY')}}{{ timestamp }}</span>
+
 
   </div>
 
@@ -22,9 +24,8 @@ export default {
   methods: {
     getNow: function() {
       const today = new Date();
-      const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
       const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      const dateTime = date +' '+ time;
+      const dateTime = ' '+ time;
       this.timestamp = dateTime;
     }
   }

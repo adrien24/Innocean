@@ -5,10 +5,11 @@
 
   <h2><span>Temperature:</span> {{ Math.round(info.current.temp) }}°C</h2>
   <h2><span>Temperature:</span> {{ info.current.weather[0].description }} </h2>
- 
+  <img v-bind:src="'https://www.web.innocean.app/rocket/adrien/image_innocean/' + info.current.weather[0].description + '.png'" v-bind:alt="pic">
 
 
 </div>
+
 
 </template>
 
