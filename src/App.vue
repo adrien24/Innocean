@@ -3,17 +3,7 @@
     <weather />
     <jour />
     <slider />
-
-    <router-link to="/">Accueil</router-link>
-    <router-link to="/about">About</router-link>
-
     <GoogleMap />
-
-
-
-
-
-
     <router-view/>
   </div>
 </template>
