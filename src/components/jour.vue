@@ -2,6 +2,8 @@
 
   <div id="jour">
 
+      <h1>{{ timestamp }}</h1>
+
   </div>
 
 </template>
@@ -9,29 +11,26 @@
 <script>
 
 
-import Vue from "vue";
-
 export default {
-  name: "jour",
-}
-
-new Vue({
-  el: '#app',
-  data: {
-    message:""
-  },
-  methods:{
-    testFunction: function () {
-      var v = this;
-      setInterval(function () {
-        v.message = new Date().toLocaleTimeString();
-      }, 1000);
+  el: '#intro',
+  data() {
+    return {
+      timestamp: ""
     }
   },
-  mounted () {
-    this.testFunction()
+  created() {
+    setInterval(this.getNow, 1000);
+  },
+  methods: {
+    getNow: function() {
+      const today = new Date();
+      const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+      const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      const dateTime = date +' '+ time;
+      this.timestamp = dateTime;
+    }
   }
-});
+}
 
 </script>
 
