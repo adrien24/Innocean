@@ -1,7 +1,9 @@
 <template>
  <div id="slider">
    <div>
+
      <img :src="images[currentNumber % images.length]" />
+
    </div>
  </div>
 </template>
@@ -36,6 +38,23 @@ export default {
 
 
 <style scoped>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.9s ease;
+  overflow: hidden;
+  visibility: visible;
+  position: absolute;
+  width:100%;
+  opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+  visibility: hidden;
+  width:100%;
+  opacity: 0;
+}
 
 #slider > div > img{
   width: 250px;

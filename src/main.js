@@ -6,11 +6,7 @@ import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import moment from 'moment'
 
-
 Vue.prototype.moment = moment
-
-
-
 Vue.config.productionTip = false
 Vue.use(VueGoogleMaps, {
   load: {

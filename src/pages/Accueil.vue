@@ -1,7 +1,7 @@
 <template>
 
   <div class="Accueil">
-    <router-link id="change" onclick="changer" to="/about">lala</router-link>
+
   </div>
 
 </template>

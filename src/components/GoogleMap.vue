@@ -7,7 +7,7 @@
     <GmapMap
       :center='center'
       :zoom='12'
-      style='width:50%;  height: 800px;'
+      style='width:20%;  height: 420px;'
       scaleControl="false"
       zoomControl="false"
       ref="roadmap"
