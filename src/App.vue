@@ -5,10 +5,10 @@
         <jour/>
 
     <div class="col">
-        <slider/>
-        <slidertest/>
+
     </div>
     <GoogleMap/>
+    <tomtom />
 
     <router-view/>
 
@@ -21,19 +21,23 @@ import GoogleMap from './components/GoogleMap.vue'
 import jour from './components/jour'
 import weather from "./components/weather";
 import slidertest from "./components/slidertest";
+import tomtom from "./components/tomtom";
 
 
 export default {
   name: 'App',
   components: {
-    slider,
+
     GoogleMap,
     jour,
     weather,
-    slidertest
+    tomtom
+
   },
 }
 
+
+console.log("592".toHHMMSS());
 
 </script>
 
@@ -41,6 +45,5 @@ export default {
 
 @import "assets/css/style-reset.css";
 
-.col{display: }
 
 </style>

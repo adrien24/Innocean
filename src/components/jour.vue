@@ -2,7 +2,7 @@
 
   <div id="jour">
 
-      <h1></h1>
+
     <span>{{moment().format('Do MMMM YYYY')}}{{ timestamp }}</span>
 
 
