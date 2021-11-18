@@ -37,13 +37,15 @@ export default {
 }
 
 
-console.log("592".toHHMMSS());
+
 
 </script>
 
 <style>
 
 @import "assets/css/style-reset.css";
-
+#app > div:nth-child(4) > div:nth-child(4){
+  display: none;
+}
 
 </style>

@@ -24,6 +24,7 @@ export default {
       info: null
     }
   },
+
   mounted() {
     axios
       .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
@@ -34,6 +35,13 @@ export default {
 </script>
 
 <style scoped>
+
+h2{
+  font-size: 15px;
+  line-height: normal;
+  margin: 0;
+
+}
 
 img{
   width: 100px;

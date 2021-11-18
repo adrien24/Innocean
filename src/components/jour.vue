@@ -11,16 +11,26 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
 
   data() {
     return {
-      timestamp: ""
+      timestamp: "",
+      info: null
     }
   },
   created() {
     setInterval(this.getNow, 1000);
   },
+
+  mounted() {
+    axios
+      .get('https://www.web.innocean.app/rocket/adrien/mot.json')
+      .then(response => (this.info = response.data))
+  },
+
   methods: {
     getNow: function() {
       const today = new Date();

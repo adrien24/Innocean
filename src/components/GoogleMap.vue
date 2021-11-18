@@ -10,7 +10,9 @@
       style='width:20%;  height: 420px;'
       scaleControl="false"
       zoomControl="false"
+      disableDefaultUI="true"
       ref="roadmap"
+
       :options="{ mapId: 'a133224cece007d1' }"/>
     <div data-udata-dataset="579e32e088ee386754d73ff6"></div>
 
