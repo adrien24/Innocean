@@ -1,7 +1,21 @@
-{
-  "18Novembre": {
-    "motfrançais": "Adrien",
-    "motCoréen": "Adrian",
-    "prononciation": "numéro 1"
-    }
-}
+[{
+  "id": "1711",
+  "fr": "Bonjourzefze",
+  "co": "안녕하세요fzef",
+  "latin": "Annyeonghaseyozfef"
+}, {
+  "id": "1811",
+  "fr": "Bonjour",
+  "co": "안녕하세요",
+  "latin": "Annyeonghaseyo"
+}, {
+  "id": "1911",
+  "fr": "Truc",
+  "co": "안녕하세요",
+  "latin": "machin"
+}, {
+  "id": "2011",
+  "fr": "Choses",
+  "co": "안녕하세요",
+  "latin": "bidule"
+}]

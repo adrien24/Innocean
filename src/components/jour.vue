@@ -4,31 +4,31 @@
 
 
     <span>{{moment().format('Do MMMM YYYY')}}{{ timestamp }}</span>
-
+<br/>
+    <div class="motdujour" style="text-align: center">
+    <span>Le mot du jour : <br/>« {{resultat.fr}} » <br/> « {{resultat.co}} » <br/> « {{resultat.latin}} »</span>
+  </div>
 
   </div>
 
 </template>
 
 <script>
-import axios from "axios";
+
+
+
 
 export default {
 
   data() {
     return {
       timestamp: "",
-      info: null
+      resultat: mot.find( word => word.id === today),
     }
   },
   created() {
     setInterval(this.getNow, 1000);
-  },
-
-  mounted() {
-    axios
-      .get('https://www.web.innocean.app/rocket/adrien/mot.json')
-      .then(response => (this.info = response.data))
+    setInterval(this.getDate, 1000);
   },
 
   methods: {
@@ -41,6 +41,17 @@ export default {
   }
 }
 
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+
+today = dd + mm ;
+
+
+
+
+import mot from "../assets/js/mot";
 </script>
 
 
