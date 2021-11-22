@@ -7,9 +7,10 @@
     <div class="col">
 
     </div>
+
     <GoogleMap/>
     <tomtom />
-
+    <anniversaire />
     <router-view/>
 
   </div>
@@ -22,6 +23,7 @@ import jour from './components/jour'
 import weather from "./components/weather";
 import slidertest from "./components/slidertest";
 import tomtom from "./components/tomtom";
+import anniversaire from "./components/anniversaire";
 
 
 export default {
@@ -31,7 +33,8 @@ export default {
     GoogleMap,
     jour,
     weather,
-    tomtom
+    tomtom,
+    anniversaire
 
   },
 }
@@ -46,6 +49,7 @@ export default {
 @import "assets/css/style-reset.css";
 #app > div:nth-child(4) > div:nth-child(4){
   display: none;
+  opacity: 0;
 }
 
 </style>

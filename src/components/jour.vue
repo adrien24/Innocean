@@ -18,17 +18,18 @@
 
 
 
+import inventaire from "../assets/js/inventaire";
+
 export default {
 
   data() {
     return {
       timestamp: "",
-      resultat: mot.find( word => word.id === today),
+      resultat: inventaire.find( word => word.id === today),
     }
   },
   created() {
     setInterval(this.getNow, 1000);
-    setInterval(this.getDate, 1000);
   },
 
   methods: {
@@ -46,12 +47,10 @@ var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
-today = dd + mm ;
+  today = dd + mm;
+//document.write(today);
+  console.log(today);
 
-
-
-
-import mot from "../assets/js/mot";
 </script>
 
 

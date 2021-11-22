@@ -1,6 +1,7 @@
 const inventaire = [
   {id: "1811", fr: "Bonjour", co:"안녕하세요", latin:"Annyeonghaseyo"},
   {id: "1911", fr: "Merci", co:"감사합니다", latin:"gamsahamnida"},
+  {id: "2011", fr: "Merci", co:"감사합니다", latin:"gamsahamnida"},
   {id: "2111", fr: "Je suis désolé", co:"죄송합니다", latin:"joesonghamnida"},
   {id: "2211", fr: "Bonne nuit", co:"죄송합니다", latin:"annyeonghi jumuseyo"},
   {id: "2311", fr: "Où se trouvent les toilettes?", co:"화장실이 어디인가요 ?", latin:"hwajangsil-i eodiingayo ?"},
