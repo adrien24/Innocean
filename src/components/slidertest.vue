@@ -1,11 +1,25 @@
 <template>
 
-  <div>
-    <transition-group name="fade" tag="div">
-      <div v-for="i in [currentIndex]" :key="i">
-        <img :src="currentImg" />
+  <div class="slider">
+    <slither-slider :options="{fullscreen:true, autoplay : true, loop : true ,secondsOnSlide: 10,controls: false, dots: false,  }">
+      <!-- Slide 1 -->
+      <div>
+        <img src="../assets/img/nicolas1.jpg">
       </div>
-    </transition-group>
+
+      <!-- Slide 2 -->
+      <div>
+        <img src="../assets/img/alex.jpg">
+      </div>
+
+      <!-- Slide 3 -->
+      <div>
+        <img src="../assets/img/nicolas2.jpg">
+      </div>
+      <div>
+        <img src="../assets/img/thomas.jpg">
+      </div>
+    </slither-slider>
   </div>
 
 
@@ -18,63 +32,28 @@
 
 
   export default {
-    name: "slidertest",
-    data() {
-      return {
-        images: [
-          "https://cdn.pixabay.com/photo/2015/12/12/15/24/amsterdam-1089646_1280.jpg",
-          "https://cdn.pixabay.com/photo/2016/02/17/23/03/usa-1206240_1280.jpg",
-          "https://cdn.pixabay.com/photo/2015/05/15/14/27/eiffel-tower-768501_1280.jpg",
-          "https://cdn.pixabay.com/photo/2016/12/04/19/30/berlin-cathedral-1882397_1280.jpg"
-        ],
-        timer: null,
-        currentIndex: 0
-      };
-    },
-
-    mounted: function() {
-      this.startSlide();
-    },
-
-    methods: {
-      startSlide: function() {
-        this.timer = setInterval(this.next, 4000);
-      },
-
-      next: function() {
-        this.currentIndex += 1;
-      },
-    },
-
-    computed: {
-      currentImg: function() {
-        return this.images[Math.abs(this.currentIndex) % this.images.length];
-      }
-    }
-  };
+    name: "slidertest"}
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.9s ease;
-  overflow: hidden;
-  visibility: visible;
-  position: absolute;
-  display: block;
-  opacity: 1;
-}
-
-.fade-enter,
-.fade-leave-to {
-  display: block;
-  opacity: 0;
-}
-
 img {
 
-  width: 250px;
+  width: 100%;
 
 }
+
+
+.slider{
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 10px;
+  border: solid 1px rgba(223,83,31,0.40);
+  box-shadow: 30px 10px 75px 1px rgba(223,83,31,0.30);
+  color: rgba(223,83,31,1);
+  font-size: 20px ;
+  padding: 10px;
+  height: 350px;
+  margin-top: 20px;
+}
+
 
 </style>

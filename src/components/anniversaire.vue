@@ -1,8 +1,23 @@
 <template>
-  <div id="anniversaire">
-    {{resultat[0].name}} {{resultat[0].date}}<br />
-    {{resultat[1].name}} {{resultat[1].date}}<br />
-    {{resultat[2].name}} {{resultat[2].date}}<br />
+
+
+  <div class="trafic">
+    <span style="font-weight: bold; margin-left: 5%;">ANNIVERSAIRE</span>
+    <div class="trafic_container">
+      <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
+      <div class="bloc_container_scnd">
+        <div><span style="font-weight: bold; font-size: 20px;">{{resultat[0].name}}</span></div>
+        <div>{{resultat[0].date}}</div>
+      </div>
+      <div class="bloc_container_scnd">
+        <div><span style="font-weight: bold; font-size: 20px;">{{resultat[1].name}}</span></div>
+        <div>{{resultat[1].date}}</div>
+      </div>
+      <div class="bloc_container_scnd">
+        <div><span style="font-weight: bold; font-size: 20px;">{{resultat[2].name}}</span></div>
+        <div>{{resultat[2].date}}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,5 +55,44 @@ var maxday = 6;
 </script>
 
 <style scoped>
+body{
+  margin: 0;
+}
 
+.trafic{
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 20px;
+  height: auto;
+  background-color: #FFFCF7;
+  border-radius: 10px;
+  border: solid 1px rgba(223,83,31,0.40);
+  box-shadow: 30px 10px 75px 1px rgba(223,83,31,0.30);
+  color: rgba(223,83,31,1);
+  font-size: 20px ;
+  padding: 10px;
+
+}
+
+.trafic_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bloc_container_scnd{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.trafic div{
+  margin-top: 5px;
+}
+
+.gras{
+  font-weight: bold;
+  font-size: 35px;
+}
 </style>

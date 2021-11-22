@@ -5,7 +5,10 @@ import App from './App'
 import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import moment from 'moment'
+import SlitherSlider from 'slither-slider';
 
+
+Vue.use(SlitherSlider)
 Vue.prototype.moment = moment
 Vue.config.productionTip = false
 Vue.use(VueGoogleMaps, {
