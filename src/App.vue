@@ -14,7 +14,7 @@
 
       <div class="col3">
         <motdujour />
-        <slidertest />
+        <slider />
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
 <script>
 import GoogleMap from './components/GoogleMap.vue'
 import jour from './components/jour'
-import slidertest from "./components/slidertest";
+import slider from "./components/slider";
 import anniversaire from "./components/anniversaire";
 import Twitter from "./components/Twitter";
 import motdujour from "./components/motdujour";
@@ -33,7 +33,7 @@ import motdujour from "./components/motdujour";
 export default {
   name: 'App',
   components: {
-    slidertest,
+    slider,
     GoogleMap,
     jour,
     anniversaire,
