@@ -76,7 +76,7 @@ export default {
   width: 100%;
   height: 100vh;
   background: conic-gradient(from 236deg at 50% 50%, rgba(255, 252, 247, 1) 0%, rgba(255, 242, 221, 1) 100%) no-repeat;
-  background-size: auto;
+  background-size: auto
 }
 
 #app > div.all > div.col3 > div.slider > div > div > div > div > div:nth-child(1) > div > div{
