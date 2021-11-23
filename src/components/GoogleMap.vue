@@ -86,7 +86,7 @@ export default {
       map.panTo({lat: 48.89174573005072, lng: 2.2171737851586393})
     })
     axios
-      .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.88060000087292,2.244597658280074/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
+      .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.880589206580616,2.244400876233613/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
       .then(response => (this.havas = response.data))
 
     axios
@@ -154,7 +154,6 @@ export default {
 
   },
 
-
   computed: {
     time: function () {
       const sec_num = parseInt(this.havas.routes[0].summary.travelTimeInSeconds, 10);
@@ -162,16 +161,23 @@ export default {
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
       let seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-      if (hours < 10) {
-        hours = `0${hours}`;
+      if (hours >= 1) {
+        hours = `0${hours} h`;
       }
+
+      if (hours < 1){
+        hours = ''
+      }
+
       if (minutes < 10) {
         minutes = `0${minutes}`;
       }
       if (seconds < 10) {
         seconds = `0${seconds}`;
       }
-      return `${hours}h ${minutes} min ${seconds} sec`;
+
+
+      return `${hours} ${minutes} min ${seconds} sec`;
     },
 
     time2() {
@@ -180,16 +186,23 @@ export default {
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
       let seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-      if (hours < 10) {
-        hours = `0${hours}`;
+      if (hours >= 1) {
+        hours = `0${hours} h`;
       }
+
+      if (hours < 1){
+        hours = ''
+      }
+
       if (minutes < 10) {
         minutes = `0${minutes}`;
       }
       if (seconds < 10) {
         seconds = `0${seconds}`;
       }
-      return `${hours}h ${minutes} min ${seconds} sec`;
+
+
+      return `${hours} ${minutes} min ${seconds} sec`;
     },
 
 
@@ -199,16 +212,23 @@ export default {
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
       let seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-      if (hours < 10) {
-        hours = `0${hours}`;
+      if (hours >= 1) {
+        hours = `0${hours} h`;
       }
+
+      if (hours < 1){
+        hours = ''
+      }
+
       if (minutes < 10) {
         minutes = `0${minutes}`;
       }
       if (seconds < 10) {
         seconds = `0${seconds}`;
       }
-      return `${hours}h ${minutes} min ${seconds} sec`;
+
+
+      return `${hours} ${minutes} min ${seconds} sec`;
     }
   },
 }

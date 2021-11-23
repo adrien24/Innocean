@@ -43,15 +43,12 @@ img {
 }
 
 
-.slider{
-  font-family: 'Montserrat', sans-serif;
+
+
+img{
   border-radius: 10px;
   border: solid 1px rgba(223,83,31,0.40);
-  box-shadow: 30px 10px 75px 1px rgba(223,83,31,0.30);
-  color: rgba(223,83,31,1);
-  font-size: 20px ;
-  padding: 10px;
-  height: 350px;
+  box-shadow: 30px 10px 30px 1px rgba(223,83,31,0.30);
   margin-top: 20px;
 }
 

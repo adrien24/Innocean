@@ -13,17 +13,16 @@
         <div><span class="gras">INNOCEAN</span></div>
       </div>
       <div class="droite" v-if="timestamp">
-        <div>{{ moment().format('Do MMMM YYYY') }}</div>
-        <div style="width: 140px"><span class="gras">{{ timestamp }}</span></div>
+        <div>{{ moment().format('LLL') }}</div>
+        <div style="width: 140px"><span class="gras">{{ moment().format('LT') }}</span></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
-
 import axios from "axios";
+import langofmoment from "../assets/js/momentlang";
 
 export default {
 
