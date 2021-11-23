@@ -48,11 +48,6 @@ export default {
 
 @import "assets/css/style-reset.css";
 
-#app > div:nth-child(4) > div:nth-child(4) {
-  display: none;
-  opacity: 0;
-}
-
 
 
 .all{
@@ -97,14 +92,12 @@ export default {
   transform: translate(-50%, -50%);
   top: 100%;
   left: 0;
+  z-index: -1;
   width: 1500px;
   height: 1500px;
   border-radius: 50%;
   border: solid 1px rgba(223, 83, 31, 0.50);
 }
 
-#app > div.all > div.col3 > div.slider > div > div > div > div > div:nth-child(1) > div > div{
-  height: 400px!important;
-}
 
 </style>

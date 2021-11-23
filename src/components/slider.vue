@@ -38,7 +38,7 @@ export default {
 <style scoped>
 img {
 
-  width: 100%;
+
 
 }
 
@@ -48,9 +48,21 @@ img {
 img{
   border-radius: 10px;
   border: solid 1px rgba(223,83,31,0.40);
-  box-shadow: 30px 10px 30px 1px rgba(223,83,31,0.30);
+  box-shadow: 5px 10px 30px 1px rgba(223,83,31,0.30);
   margin-top: 20px;
+  width: 95%;
 }
+
+slither-slider div{
+
+}
+
+.slider {
+  width: 100%;
+  height: 700px;
+}
+
+
 
 
 </style>
