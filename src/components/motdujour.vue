@@ -45,9 +45,10 @@ body{
   background-color: #FFFCF7;
   border-radius: 10px;
   border: solid 1px rgba(223,83,31,0.40);
-  box-shadow: 30px 10px 75px 1px rgba(223,83,31,0.30);
+  box-shadow: 7px 10px 75px 1px rgba(223,83,31,0.30);
   color: rgba(223,83,31,1);
   font-size: 20px ;
+  width: 95%;
 
 
 }
