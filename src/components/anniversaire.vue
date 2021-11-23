@@ -90,5 +90,10 @@ body{
 
 .trafic div{
   margin-top: 5px;
+
+}
+
+div.anniversaire > div div{
+  padding-bottom: 5px;
 }
 </style>

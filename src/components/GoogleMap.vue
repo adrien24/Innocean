@@ -154,9 +154,6 @@ export default {
 
   },
 
-  created() {
-    setInterval(this.time, 3000)
-  },
 
   computed: {
     time: function () {
@@ -227,7 +224,6 @@ body {
 
 .bloc {
   font-family: 'Montserrat', sans-serif;
-  width: 500px;
   height: auto;
   background-color: #FFFCF7;
   border-radius: 10px;

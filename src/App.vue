@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <jour/>
     <div class="all">
       <div class="col1">
@@ -67,7 +66,7 @@ export default {
 }
 
 .col1, .col2, .col3{
-  width: 500px;
+  width: 26%;
 }
 
 
@@ -75,8 +74,34 @@ export default {
 #app {
   width: 100%;
   height: 100vh;
+  overflow-y: hidden;
+
+}
+
+#app::after{
+  content: '';
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
   background: conic-gradient(from 236deg at 50% 50%, rgba(255, 252, 247, 1) 0%, rgba(255, 242, 221, 1) 100%) no-repeat;
-  background-size: auto
+  background-size: auto;
+  z-index: -10;
+
+}
+
+#app::before{
+  content: '';
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 100%;
+  left: 0;
+  width: 1500px;
+  height: 1500px;
+  border-radius: 50%;
+  border: solid 1px rgba(223, 83, 31, 0.50);
 }
 
 #app > div.all > div.col3 > div.slider > div > div > div > div > div:nth-child(1) > div > div{
