@@ -4,7 +4,6 @@ import Accueil from "../pages/Accueil";
 import About from "../pages/About";
 
 
-
 Vue.use(Router)
 
 
@@ -12,9 +11,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {path: '/',name: 'Accueil',component: Accueil},
-    {path: '/about',name: 'About',component: About}
-
-
+    {path: '/about',name: 'About',component: About},
   ]
 })
 
