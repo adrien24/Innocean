@@ -154,8 +154,6 @@ export default {
 
   },
 
-
-
   computed: {
     time: function () {
       const sec_num = parseInt(this.havas.routes[0].summary.travelTimeInSeconds, 10);
@@ -246,7 +244,6 @@ body {
 
 .bloc {
   font-family: 'Montserrat', sans-serif;
-  width: 500px;
   height: auto;
   background-color: #FFFCF7;
   border-radius: 10px;

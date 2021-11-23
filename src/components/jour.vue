@@ -66,7 +66,7 @@ body {
 
 .barre {
   font-family: 'Montserrat', sans-serif;
-  width: 90%;
+  width: 89%;
   height: 80px;
   background-color: #FFFCF7;
   border-radius: 10px;
@@ -78,6 +78,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .barre div {
@@ -96,8 +100,5 @@ body {
   fill: #F05921;
 }
 
-.barre {
-  margin: auto;
-}
 
 </style>
