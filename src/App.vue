@@ -17,6 +17,7 @@
         <slider />
       </div>
     </div>
+
   </div>
 
 </template>
@@ -39,7 +40,6 @@ export default {
     anniversaire,
     Twitter,
     motdujour
-
   },
 }
 

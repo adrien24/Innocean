@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="trafic">
+  <div class="anniversaire">
     <span style="font-weight: bold; margin-left: 5%;">ANNIVERSAIRE</span>
     <div class="trafic_container">
       <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
@@ -19,10 +19,11 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
-import anniv from "../assets/js/anniv";
+import anniversaire from "../assets/js/anniv";
 
 
 export default {
@@ -31,7 +32,7 @@ export default {
   data() {
     return {
       timestamp: "",
-      resultat: anniv.splice(indexday,maxday),
+      resultat: anniversaire.splice(indexday,maxday),
 
     }
   },
@@ -45,7 +46,7 @@ var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
 today = dd + mm ;
 
-var indexday = anniv.map(function(e) { return e.id; }).indexOf(today);
+var indexday = anniversaire.map(function(e) { return e.id; }).indexOf(today);
 
 var maxday = 6;
 
@@ -59,7 +60,7 @@ body{
   margin: 0;
 }
 
-.trafic{
+.anniversaire{
   font-family: 'Montserrat', sans-serif;
   margin-top: 20px;
   height: auto;
@@ -89,10 +90,5 @@ body{
 
 .trafic div{
   margin-top: 5px;
-}
-
-.gras{
-  font-weight: bold;
-  font-size: 35px;
 }
 </style>
