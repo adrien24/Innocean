@@ -1,44 +1,5 @@
 const anniversaire = [
   {id: '0301', name: 'Zelal / Eui Jo'},
-<<<<<<< HEAD
-  {id: '0901', name: 'Paul'},
-  {id: '1101', name: 'Lea'},
-  {id: '1801', name: 'Inyoung'},
-  {id: '0302', name: 'Aurélien'},
-  {id: '1502', name: 'Sujung'},
-  {id: '2702', name: 'Louis'},
-  {id: '3003', name: 'Mathilde'},
-  {id: '0304', name: 'Alice'},
-  {id: '0404', name: 'Balbine'},
- {id: '0604', name: 'Anaïs'},
- {id: '1404', name: 'Roxana'},
- {id: '2704', name: 'Eric'},
- {id: '0105', name: 'Malik'},
- {id: '0605', name: 'Fabrice'},
- {id: '0805', name: 'Martine'},
- {id: '1905', name: 'Alexandre'},
- {id: '2605', name: 'Sarah'},
- {id: '1906', name: 'Benoît'},
- {id: '2406', name: 'Adrien'},
- {id: '0107', name: 'Andréa'},
- {id: '0207', name: 'Laurent'},
- {id: '0607', name: 'Nalini'},
- {id: '1307', name: 'Doris'},
- {id: '2507', name: 'Marie'},
- {id: '2807', name: 'Laetitia'},
- {id: '1408', name: 'Pascal'},
- {id: '0109', name: 'Damien'},
- {id: '2309', name: 'Muriel'},
- {id: '0710', name: 'Zoe'},
- {id: '0810', name: 'Emmanuel'},
- {id: '1710', name: 'Sun Hyung'},
- {id: '1810', name: 'Julien'},
- {id: '2010', name: 'Christopher / Julien'},
- {id: '2110', name: 'Jeong Hoon'},
- {id: '0311', name: 'Fabien'},
- {id: '0611', name: 'Jean - Baptiste'},
- {id: '2411', name: ''}
-=======
   {id: '0901', name: 'Paul', date: '9 Janvier'},
   {id: '1101', name: 'Lea', date: '11 Janvier'},
   {id: '1801', name: 'Inyoung', date: '18 Janvier'},
@@ -79,7 +40,6 @@ const anniversaire = [
  {id: '2811', name: 'Thomas', date: ' 28 Novembre'},
  {id: '1912', name: 'Nicolas', date: ' 19 Decembre'},
  {id: '2212', name: 'Jeong Joon', date: ' 22 Decembre'}
->>>>>>> 2690d6a48ed52c62f97089495ae4c7868ad1e258
 
 
 
