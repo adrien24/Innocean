@@ -4,8 +4,7 @@
     <div class="trafic_container">
       <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
 
-          <a class="twitter-timeline" href="https://twitter.com/Ligne3_RATP" data-width="400" data-chrome="nofooter noheader noscrollbar transparent" data-tweet-limit="2"
-             ></a>
+      <a class="twitter-timeline" href="https://twitter.com/my_innobot/lists/1463433822901608450" data-chrome="noheader nofooter transparent noscrollbar" data-height="705" data-width="400"  ></a>
 
 
 
@@ -28,7 +27,7 @@ body{
 
 .trafic{
   font-family: 'Montserrat', sans-serif;
-  height: auto;
+
   background-color: #FFFCF7;
   border-radius: 10px;
   border: solid 1px rgba(223,83,31,0.40);
@@ -37,6 +36,8 @@ body{
   font-size: 20px ;
   padding: 10px;
 }
+
+
 
 .trafic_container{
   display: flex;
@@ -53,9 +54,6 @@ body{
   box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.04);
 }
 
-iframe{
-  width: 500px; height: 700px
-}
 
 
 

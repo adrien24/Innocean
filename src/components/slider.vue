@@ -1,7 +1,7 @@
 <template>
 
   <div class="slider">
-    <slither-slider :options="{fullscreen:true, autoplay : true, loop : true ,secondsOnSlide: 10,controls: false, dots: false,  }">
+    <slither-slider :options="{fullscreenOffset:false, autoplay : true, loop : true ,secondsOnSlide: 10,controls: false, dots: false,  }">
       <!-- Slide 1 -->
       <div>
         <img src="../assets/img/nicolas1.jpg">
@@ -59,7 +59,6 @@ slither-slider div{
 
 .slider {
   width: 100%;
-  height: 700px;
 }
 
 

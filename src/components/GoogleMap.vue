@@ -11,12 +11,10 @@
             :center='center'
             :zoom='12'
             style='width:100%;  height: 420px;'
-            scaleControl="false"
-            zoomControl="false"
-            disableDefaultUI="true"
             ref="roadmap"
 
-            :options="{ mapId: 'a133224cece007d1' }">
+            :options="{ mapId: 'a133224cece007d1', streetViewControl: false, mapTypeControl: false, scaleControl: false,
+            zoomControl: false, disableDefaultUI: true, keyboardShortcuts: false, }">
 
 
             <GmapMarker
@@ -71,8 +69,6 @@ export default {
       hyundai: null,
     }
   },
-
-
 
 
   mounted() {
@@ -154,6 +150,7 @@ export default {
 
   },
 
+
   computed: {
     time: function () {
       const sec_num = parseInt(this.havas.routes[0].summary.travelTimeInSeconds, 10);
@@ -165,7 +162,7 @@ export default {
         hours = `0${hours} h`;
       }
 
-      if (hours < 1){
+      if (hours < 1) {
         hours = ''
       }
 
@@ -190,7 +187,7 @@ export default {
         hours = `0${hours} h`;
       }
 
-      if (hours < 1){
+      if (hours < 1) {
         hours = ''
       }
 
@@ -216,7 +213,7 @@ export default {
         hours = `0${hours} h`;
       }
 
-      if (hours < 1){
+      if (hours < 1) {
         hours = ''
       }
 
@@ -229,6 +226,8 @@ export default {
 
 
       return `${hours} ${minutes} min ${seconds} sec`;
+
+
     }
   },
 }

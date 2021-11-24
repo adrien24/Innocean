@@ -71,6 +71,7 @@ body{
   color: rgba(223,83,31,1);
   font-size: 20px ;
   padding: 10px;
+  width: 95%;
 
 }
 

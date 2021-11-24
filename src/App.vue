@@ -4,7 +4,7 @@
     <div class="all">
       <div class="col1">
         <Twitter/>
-        <anniversaire/>
+
       </div>
 
       <div class="col2">
@@ -13,9 +13,12 @@
 
       <div class="col3">
         <motdujour />
+        <anniversaire/>
         <slider />
+
       </div>
     </div>
+
 
   </div>
 </template>
@@ -27,7 +30,9 @@ import slider from "./components/slider";
 import anniversaire from "./components/anniversaire";
 import Twitter from "./components/Twitter";
 import motdujour from "./components/motdujour";
-
+//setTimeout((function() {
+  //window.location.reload();
+//}), 60);
 
 export default {
   name: 'App',

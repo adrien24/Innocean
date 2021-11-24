@@ -14,7 +14,7 @@
       </div>
       <div class="droite" v-if="timestamp">
         <div>{{ moment().format('LLL') }}</div>
-        <div style="width: 140px"><span class="gras">{{ moment().format('LT') }}</span></div>
+        <div style="width: 150px"><span class="gras">{{ moment().format('LT') }}</span></div>
       </div>
     </div>
   </div>
