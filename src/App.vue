@@ -30,9 +30,10 @@ import slider from "./components/slider";
 import anniversaire from "./components/anniversaire";
 import Twitter from "./components/Twitter";
 import motdujour from "./components/motdujour";
-//setTimeout((function() {
-  //window.location.reload();
-//}), 60);
+
+setTimeout((function() {
+  window.location.reload();
+}), 600000);
 
 export default {
   name: 'App',
@@ -68,13 +69,10 @@ export default {
   width: 26%;
 }
 
-
-
-#app {
+html{
+  overflow-y: hidden;
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
-
 }
 
 #app::after{
@@ -102,6 +100,13 @@ export default {
   height: 1500px;
   border-radius: 50%;
   border: solid 1px rgba(223, 83, 31, 0.50);
+  animation: cercle 20s infinite linear;
+}
+
+@keyframes cercle {
+  0%{transform: translate(-50%, -50%);}
+  50%{transform: translate(-30%, -60%);}
+  100%{transform: translate(-50%, -50%);}
 }
 
 

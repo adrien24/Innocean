@@ -16,15 +16,19 @@
             :options="{ mapId: 'a133224cece007d1', streetViewControl: false, mapTypeControl: false, scaleControl: false,
             zoomControl: false, disableDefaultUI: true, keyboardShortcuts: false, }">
 
+            <gmap-custom-marker :marker="InnoceanM" >
+              <img src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" />
+            </gmap-custom-marker>
+            <gmap-custom-marker :marker="HavasM" >
+              <img src="https://web.innocean.app/rocket/adrien/image_innocean/black-dot.png" />
+            </gmap-custom-marker>
+            <gmap-custom-marker :marker="KiaM" >
+              <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" />
+            </gmap-custom-marker>
+            <gmap-custom-marker :marker="HyundaiM" >
+              <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" />
+            </gmap-custom-marker>
 
-            <GmapMarker
-              :key="index"
-              v-for="(m, index) in getMarkers()"
-              :position="m.position"
-              :clickable="false"
-              :draggable="false"
-              :icon="m.icon"
-            />
 
 
           </GmapMap>
@@ -58,15 +62,24 @@
 
 <script>
 import axios from "axios";
+import GmapCustomMarker from 'vue2-gmap-custom-marker';
+
 
 export default {
   name: "GoogleMap",
+  components:{
+    'gmap-custom-marker': GmapCustomMarker
+  },
   data() {
     return {
       center: {lat: 48.89174573005072, lng: 2.2171737851586393},
       havas: null,
       kia: null,
       hyundai: null,
+      InnoceanM: {lat: 48.898017800974586, lng: 2.279446246633403},
+      HavasM: {lat: 48.880589206580616, lng: 2.244400876233613},
+      KiaM: {lat: 48.887380083145864, lng: 2.1652471948053527},
+      HyundaiM: {lat: 48.90558099727266, lng: 2.238146178011094}
     }
   },
 
@@ -105,49 +118,6 @@ export default {
 
       });
     },
-
-    getMarkers() {
-      // generating markers for site map
-      var markers = [];
-      // remove this after lat long received from api.
-      const tempLatLong = [
-        {lat: 48.898017800974586, lng: 2.279446246633403, case: 1},
-        {lat: 48.88060000087292, lng: 2.244597658280074, type: "case2"},
-        {lat: 48.887380083145864, lng: 2.1652471948053527},
-        {lat: 48.90558099727266, lng: 2.238146178011094}
-      ];
-      for (let i = 0; i < tempLatLong.length; i++) {
-        markers.push({
-          position: tempLatLong[i],
-          icon: this.getSiteIcon(2)    // if you want to show different as per the condition.
-        });
-      }
-      return markers;
-    },
-    getSiteIcon(status) {
-      try {
-        switch (status) {
-          case 1:
-            return ("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
-            break;
-          case 2:
-            return ("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
-            break;
-          case 3:
-            return ("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
-            break;
-          case 4:
-            return ("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
-            break;
-          default:
-            return ("http://maps.google.com/mapfiles/ms/icons/purple-dot.png");
-        }
-      } catch (e) {
-        return null;
-      }
-    },
-
-
   },
 
 
@@ -231,8 +201,6 @@ export default {
     }
   },
 }
-
-
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 const anniversaire = [
   {id: '0301', name: 'Zelal / Eui Jo'},
-  {id: '0901', name: 'Paul', date: '9 janvier'},
+  {id: '0901', name: 'Paul'},
   {id: '1101', name: 'Lea'},
   {id: '1801', name: 'Inyoung'},
   {id: '0302', name: 'Aurélien'},
@@ -36,10 +36,7 @@ const anniversaire = [
  {id: '2110', name: 'Jeong Hoon'},
  {id: '0311', name: 'Fabien'},
  {id: '0611', name: 'Jean - Baptiste'},
- {id: '2511', name: 'Mamou'},
- {id: '2811', name: 'Thomas'},
- {id: '1912', name: 'Nicolas'},
- {id: '2212', name: 'Jeong Joon'}
+ {id: '2411', name: ''}
 
 
 
