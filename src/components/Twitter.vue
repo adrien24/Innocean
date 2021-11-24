@@ -27,7 +27,8 @@ body{
 
 .trafic{
   font-family: 'Montserrat', sans-serif;
-
+  width: 95%;
+  margin-left: 5%;
   background-color: #FFFCF7;
   border-radius: 10px;
   border: solid 1px rgba(223,83,31,0.40);

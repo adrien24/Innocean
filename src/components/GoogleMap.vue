@@ -241,6 +241,9 @@ body {
   margin: 0;
 }
 
+
+
+{display:none;}
 .bloc {
   font-family: 'Montserrat', sans-serif;
   height: auto;

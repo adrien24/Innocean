@@ -41,13 +41,15 @@ export default {
 }
 
 var today = new Date();
+
+let i;
+
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
 today = dd + mm ;
 
 var indexday = anniversaire.map(function(e) { return e.id; }).indexOf(today);
-
 var maxday = 6;
 
 

@@ -13,7 +13,7 @@
         <div><span class="gras">INNOCEAN</span></div>
       </div>
       <div class="droite" v-if="timestamp">
-        <div>{{ moment().format('LLL') }}</div>
+        <div>{{ moment().format('dddd LLL') }}</div>
         <div style="width: 150px"><span class="gras">{{ moment().format('LT') }}</span></div>
       </div>
     </div>
