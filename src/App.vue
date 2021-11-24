@@ -78,16 +78,23 @@ html{
 #app::after{
   content: '';
   position: fixed;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
+  border-radius: 50%;
+  top: -100%;
+  left: -50%;
+  width: 200%;
+  height: 300%;
   background: conic-gradient(from 236deg at 50% 50%, rgba(255, 252, 247, 1) 0%, rgba(255, 242, 221, 1) 100%) no-repeat;
   background-size: auto;
   z-index: -10;
+  animation: rotate 120s linear infinite;
 
 }
+@keyframes rotate {
+  0%{transform: rotate(0deg)}
+  50%{transform: rotate(180deg)}
+  100%{ transform: rotate(360deg);}
+}
+
 
 #app::before{
   content: '';
@@ -107,6 +114,7 @@ html{
   0%{transform: translate(-50%, -50%);}
   50%{transform: translate(-30%, -60%);}
   100%{transform: translate(-50%, -50%);}
+
 }
 
 

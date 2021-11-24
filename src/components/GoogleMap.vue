@@ -17,16 +17,16 @@
             zoomControl: false, disableDefaultUI: true, keyboardShortcuts: false, }">
 
             <gmap-custom-marker :marker="InnoceanM" >
-              <img src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" />
+              <img src="../assets/img/innocean-dot.png" style="width: 30px">
             </gmap-custom-marker>
             <gmap-custom-marker :marker="HavasM" >
-              <img src="https://web.innocean.app/rocket/adrien/image_innocean/black-dot.png" />
+              <img src="../assets/img/havas-dot.png" style="width: 30px">
             </gmap-custom-marker>
             <gmap-custom-marker :marker="KiaM" >
-              <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" />
+              <img src="../assets/img/kia-dot.png" style="width: 30px">
             </gmap-custom-marker>
             <gmap-custom-marker :marker="HyundaiM" >
-              <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" />
+              <img src="../assets/img/hyundai-dot.png" style="width: 30px">
             </gmap-custom-marker>
 
 

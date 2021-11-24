@@ -1,18 +1,16 @@
 <template>
 
-
+<div id="anniversaire">
   <div class="anniversaire">
     <span style="font-weight: bold; margin-left: 5%;">ANNIVERSAIRE</span>
     <div class="trafic_container">
       <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
+
       <div class="bloc_container_scnd">
+        <div><span style="font-weight: bold; font-size: 20px;"></span></div>
 
       </div>
-      <div class="bloc_container_scnd">
-        <div><span style="font-weight: bold; font-size: 20px;">{{resultat[1].name}}</span></div>
 
-      </div>
-      <div class="bloc_container_scnd">
 
       </div>
     </div>
