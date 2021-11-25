@@ -31,9 +31,9 @@ import anniversaire from "./components/anniversaire";
 import Twitter from "./components/Twitter";
 import motdujour from "./components/motdujour";
 
-setTimeout((function() {
-  window.location.reload();
-}), 600000);
+//setTimeout((function() {
+  //window.location.reload();
+//}), 600000);
 
 export default {
   name: 'App',

@@ -66,7 +66,7 @@ body {
 
 .barre {
   font-family: 'Montserrat', sans-serif;
-  width: 89%;
+  width: 86.5%;
   height: 80px;
   background-color: #FFFCF7;
   border-radius: 10px;

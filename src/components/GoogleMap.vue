@@ -40,7 +40,7 @@
         <div class="trajet">
 
 
-          <div class="hyundai"><h2>INNOCEAN à Hyundai</h2>
+          <div class="hyundai" id="hyundaicolor"><h2>INNOCEAN à Hyundai</h2>
             <span class="gras" v-if="hyundai">{{ time3 }} </span>
           </div>
 
@@ -79,7 +79,8 @@ export default {
       InnoceanM: {lat: 48.898017800974586, lng: 2.279446246633403},
       HavasM: {lat: 48.880589206580616, lng: 2.244400876233613},
       KiaM: {lat: 48.887380083145864, lng: 2.1652471948053527},
-      HyundaiM: {lat: 48.90558099727266, lng: 2.238146178011094}
+      HyundaiM: {lat: 48.90558099727266, lng: 2.238146178011094},
+
     }
   },
 
@@ -139,6 +140,18 @@ export default {
       if (minutes < 10) {
         minutes = `0${minutes}`;
       }
+
+      if(minutes >= 0 && minutes < 13){
+        const havas = document.querySelector('.havas');
+        havas.style.borderBottom = '3px solid green';
+      }else if(minutes >= 13 && minutes < 16){
+        const havas = document.querySelector('.havas');
+        havas.style.borderBottom = '3px solid orange';
+      }else if(minutes >= 16){
+        const havas = document.querySelector('.havas');
+        havas.style.borderBottom = '3px solid red';
+      }
+
       if (seconds < 10) {
         seconds = `0${seconds}`;
       }
@@ -164,6 +177,18 @@ export default {
       if (minutes < 10) {
         minutes = `0${minutes}`;
       }
+
+      if(minutes >= 0 && minutes < 13){
+        const kia = document.querySelector('.kia');
+        kia.style.borderBottom = '3px solid green';
+      }else if(minutes >= 13 && minutes < 16){
+        const kia = document.querySelector('.kia');
+        kia.style.borderBottom = '3px solid orange';
+      }else if(minutes >= 16){
+        const kia = document.querySelector('.kia');
+        kia.style.borderBottom = '3px solid red';
+      }
+
       if (seconds < 10) {
         seconds = `0${seconds}`;
       }
@@ -190,6 +215,19 @@ export default {
       if (minutes < 10) {
         minutes = `0${minutes}`;
       }
+
+      if(minutes >= 0 && minutes < 12){
+        const hyundai = document.querySelector('.hyundai');
+        hyundai.style.borderBottom = '3px solid green';
+      }else if(minutes >= 12 && minutes < 16){
+        const hyundai = document.querySelector('.hyundai');
+        hyundai.style.borderBottom = '3px solid orange';
+      }else{
+        const hyundai = document.querySelector('.hyundai');
+        hyundai.style.borderBottom = '3px solid red';
+      }
+
+
       if (seconds < 10) {
         seconds = `0${seconds}`;
       }
