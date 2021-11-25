@@ -42,16 +42,16 @@ var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
 today = dd + mm ;
 //document.write(today);
-console.log(today);
+
 
 
 // on récupère l'index de la date du jour :
 var indexday = anniversaire.map(function(e) { return e.id; }).indexOf(today);
-console.log(indexday);
+
 
 // on veut les 5 anniv qui suivent la date du jour
 var maxday = 6;
-console.log(maxday);
+
 
 //on affiche le tableau avec les 5 anniv
 var myArray = anniversaire.splice(indexday,maxday);
@@ -63,7 +63,7 @@ for (var contenu in myArray) {
   newElement.innerHTML = myArray[contenu]['name'];
   document.body.appendChild(newElement);
 }
-console.log(myArray)
+
 </script>
 
 <style scoped>

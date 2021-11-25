@@ -20,6 +20,7 @@
     "hooper": "^0.3.4",
     "marker-clusterer-plus": "^2.1.4",
     "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
     "moment-timezone": "^0.5.34",
     "rellax": "^1.12.1",
     "slither-slider": "^2.11.0",
