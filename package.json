@@ -17,6 +17,7 @@
     "@splidejs/vue-splide": "^0.5.10",
     "aos": "^2.3.4",
     "axios": "^0.24.0",
+    "granim": "^2.0.0",
     "hooper": "^0.3.4",
     "marker-clusterer-plus": "^2.1.4",
     "moment": "^2.29.1",

@@ -7,7 +7,7 @@
       <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
 
       <div class="bloc_container_scnd">
-        <div><span style="font-weight: bold; font-size: 20px;"></span></div>
+        <div><span style="font-weight: bold; font-size: 20px;">{{resultat}}</span></div>
 
       </div>
 
@@ -40,29 +40,33 @@ var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
-today = dd + mm ;
 //document.write(today);
-
-
+today = dd++ + mm;
 
 // on récupère l'index de la date du jour :
 var indexday = anniversaire.map(function(e) { return e.id; }).indexOf(today);
-
 
 // on veut les 5 anniv qui suivent la date du jour
 var maxday = 6;
 
 
 //on affiche le tableau avec les 5 anniv
-var myArray = anniversaire.splice(indexday,maxday);
 
 
-for (var contenu in myArray) {
-  var newElement = document.createElement('div');
-  newElement.id = 'day_'+myArray[contenu]['id']; newElement.className = 'toto';
-  newElement.innerHTML = myArray[contenu]['name'];
-  document.body.appendChild(newElement);
-}
+
+  var myArray = anniversaire.splice(indexday,maxday);
+
+
+console.log(indexday)
+
+
+
+//for (var contenu in myArray) {
+  //var newElement = document.createElement('div');
+  //newElement.id = 'day_'+myArray[contenu]['id']; newElement.className = 'toto';
+  //newElement.innerHTML = myArray[contenu]['name'];
+  //document.body.appendChild(newElement);
+//}
 
 </script>
 

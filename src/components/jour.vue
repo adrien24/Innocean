@@ -12,7 +12,7 @@
       <div class="centre">
         <div><span class="gras">INNOCEAN</span></div>
       </div>
-      <div class="droite" v-if="timestamp">
+      <div class="droite" v-if="heure">
 
         <div>{{ moment().format('dddd LLL') }}</div>
         <div style="width: 150px"><span class="gras">{{ moment().format('LT') }}</span></div>
@@ -30,10 +30,14 @@ export default {
 
   data() {
     return {
-      timestamp: "",
+      heure: "",
       info: null,
+
     }
+
+
   },
+
   created() {
     setInterval(this.getNow, 1000);
   },
@@ -43,7 +47,7 @@ export default {
       const today = new Date();
       const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       const dateTime = ' ' + time;
-      this.timestamp = dateTime;
+      this.heure = dateTime;
     }
   },
 
@@ -55,7 +59,6 @@ export default {
       .then(response => (this.info = response.data))
   }
 }
-
 
 </script>
 
@@ -78,12 +81,9 @@ body {
   box-shadow: 30px 10px 75px 1px rgba(223, 83, 31, 0.30);
   color: rgba(223, 83, 31, 1);
   font-size: 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  margin-top: 10px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -92,6 +92,11 @@ body {
   display: flex;
   align-items: center;
   margin: 5px;
+}
+
+
+#jour{
+  padding-top: 25px;
 }
 
 .gras {

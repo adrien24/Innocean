@@ -33,10 +33,11 @@ const anniversaire = [
  {id: '1710', name: 'Sun Hyung', date: ' 17 Octobre'},
  {id: '1810', name: 'Julien', date: ' 18 Octobre'},
  {id: '2010', name: 'Christopher / Julien', date: ' 20 Octobre'},
- {id: '2110', name: 'Jeong Hoon', date: ' 21 Octobre'},
+ {id: '2210', name: 'Jeong Hoon', date: ' 21 Octobre'},
  {id: '0311', name: 'Fabien', date: ' 3 Novembre'},
  {id: '0611', name: 'Jean - Baptiste', date: ' 6 Novembre'},
  {id: '2511', name: 'Mamou', date: ' 25 Novembre'},
+
  {id: '2811', name: 'Thomas', date: ' 28 Novembre'},
  {id: '1912', name: 'Nicolas', date: ' 19 Decembre'},
  {id: '2212', name: 'Jeong Joon', date: ' 22 Decembre'}

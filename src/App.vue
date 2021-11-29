@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <jour/>
     <div class="all">
       <div class="col1">
@@ -31,6 +32,7 @@ import anniversaire from "./components/anniversaire";
 import Twitter from "./components/Twitter";
 import motdujour from "./components/motdujour";
 
+
 //setTimeout((function() {
   //window.location.reload();
 //}), 600000);
@@ -43,7 +45,7 @@ export default {
     jour,
     anniversaire,
     Twitter,
-    motdujour
+    motdujour,
   },
 }
 
