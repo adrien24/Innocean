@@ -46,10 +46,11 @@
   function myFunction () {
     let date = new Date();
     let heure = date.getHours();
-    console.log(heure)
-    if( heure >= 7 && heure < 9){
+    if( heure >= 7 && heure < 19){
       var body = document.body;
       body.className = " fondjour";
+      const dark = document.getElementById("nuit");
+      dark.style.display = "none";
     }
     else {
       var body = document.body;
@@ -59,7 +60,10 @@
       document.getElementById('bloc').className = "blocnuit";
       document.getElementById('twitter').className = "traficnuit";
       document.getElementById('anniv').className = "anniversairenuit";
+      document.getElementById('joure').className = "twitter-timeline jour";
       document.getElementById('sliderjour').className = "slidernuit";
+      const blue = document.getElementById("joure");
+      blue.style.display = "none";
     }
     console.log('Executed');
   }
@@ -199,6 +203,10 @@
     width: 95%;
     border: solid 1px rgba(222, 222, 222, 0.2);
     box-shadow: 30px 10px 75px 1px rgba(0, 0, 0, 0.59);
+  }
+
+  .jour, .nuit{
+    display: none;
   }
   /* FIN CSS THEME SOMBRE*/
 

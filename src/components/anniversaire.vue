@@ -1,19 +1,19 @@
 <template>
 
-<div id="anniversaire">
-  <div class="anniversaire" id="anniv">
-    <span style="font-weight: bold; margin-left: 5%;">ANNIVERSAIRE</span>
-    <div class="trafic_container">
-      <hr style="width: 90%; margin: 0; margin-bottom: 10px;">
+  <div id="anniversaire">
+    <div class="anniversaire" id="anniv">
+      <span style="font-weight: bold; margin-left: 5%;">ANNIVERSAIRE</span>
+      <div class="trafic_container">
+        <hr style="width: 90%; margin: 0; margin-bottom: 10px;">
 
-      <div class="bloc_container_scnd">
-        <ul id = "demo">
-        </ul>
+        <div class="bloc_container_scnd">
+          <ul id="demo">
+          </ul>
 
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </template>
 
@@ -21,6 +21,7 @@
 
 export default {
   name: "anniversaire",
+
 }
 
 const arr = [
@@ -70,25 +71,19 @@ const arr = [
   {date: '06-16', name: 'Hugo'}
 ];
 
+const fmt = md => md.split('-').map(p => `0${p}`.slice(-2)).join('-');
 const now = new Date();
 const year = new Date().getFullYear();
-const nww = `${now.getMonth()+1}-${now.getDate()}`;
+const nww = fmt(`${now.getMonth()+1}-${now.getDate()}`);
 const nw = new Date(`${year}-${nww}`).getTime();
 
-const ordered = arr.map(({
-                           date: d,
-                           name
-                         }) => ({
-  date: d,
-  name,
-  d: `${d < nww ? (year + 1) : year}-${d}`
+
+const ordered = arr.map(({date: d, name}) => ({
+  date: d, name, d: `${d < nww ? (year + 1) : year}-${d}`
 })).map(({
-           d,
-           ...rest
+           d, ...rest
          }) => ({
-  ...rest,
-  d,
-  ...{
+  ...rest, d, ...{
     t: new Date(d).getTime()
   }
 })).sort((a, b) => (a.t - nw) - (b.t - nw)).map(({
@@ -99,51 +94,52 @@ const ordered = arr.map(({
   name
 }));
 
-console.log( ordered );
+console.log(ordered);
 //
 const nextanniv = ordered.slice(0, 5);
 console.log(nextanniv);
 
-var months = [ "Janvier", "Fevrirer", "Mars", "Avril", "Mai", "Juin",
-  "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre" ];
+var months = ["Janvier", "Fevrirer", "Mars", "Avril", "Mai", "Juin",
+  "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"];
 
 let text = "";
 nextanniv.forEach(myFunctionAnniv);
+window.onload = function(){
 document.getElementById("demo").innerHTML = text;
-
+}
 function myFunctionAnniv(item, index) {
-  let annivMonth = Number((item.date).split("-")[0])-1;
-  text +=  "<li>" +item.name + ' ' + (item.date).split("-")[1] +' '+  months[annivMonth]  + "</li>";
+  let annivMonth = Number((item.date).split("-")[0]) - 1;
+  text += "<li>" + item.name + ' ' + (item.date).split("-")[1] + ' ' + months[annivMonth] + "</li>";
 }
 
 </script>
 
 <style scoped>
-body{
+body {
   margin: 0;
 }
 
-.anniversaire{
+.anniversaire {
   font-family: "Montserrat", sans-serif;
   margin-top: 20px;
   height: auto;
   background-color: #FFFCF7;
   border-radius: 10px;
-  border: solid 1px rgba(223,83,31,0.40);
-  box-shadow: 30px 10px 75px 1px rgba(223,83,31,0.30);
-  color: rgba(223,83,31,1);
-  font-size: 20px ;
+  border: solid 1px rgba(223, 83, 31, 0.40);
+  box-shadow: 30px 10px 75px 1px rgba(223, 83, 31, 0.30);
+  color: rgba(223, 83, 31, 1);
+  font-size: 20px;
   padding: 10px;
   width: 95%;
 }
 
-.trafic_container{
+.trafic_container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.bloc_container_scnd{
+.bloc_container_scnd {
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -151,10 +147,11 @@ body{
   align-items: center;
 }
 
-div.anniversaire > div div{
+div.anniversaire > div div {
   padding-bottom: 5px;
 }
-div.anniversairenuit > div div{
+
+div.anniversairenuit > div div {
   padding-bottom: 5px;
 }
 </style>

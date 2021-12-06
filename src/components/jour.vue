@@ -9,13 +9,15 @@
         <div v-if="info"><span class="gras">{{ Math.round(info.current.temp) }}°C</span></div>
         <div v-if="info">{{ info.current.weather[0].description }}</div>
       </div>
-      <div class="centre">
+      <div class="centre" style="padding-left: 8%">
         <div><span class="gras">INNOCEAN</span></div>
       </div>
       <div class="droite" v-if="heure">
 
-        <div>{{ moment().format('dddd LLL') }}</div>
-        <div style="width: 150px"><span class="gras">{{ moment().format('LT') }}</span></div>
+        <div>{{
+            dayjs().format('dddd DD MMMM')
+          }}</div>
+        <div style="width: 190px"><span class="gras">{{ dayjs().format('HH : mm : ss', 'fr') }}</span></div>
       </div>
     </div>
   </div>
@@ -23,7 +25,10 @@
 
 <script>
 import axios from "axios";
-import langofmoment from "../assets/js/momentlang";
+const dayjs = require("dayjs");
+require('dayjs/locale/fr')
+dayjs.locale('fr')
+
 
 
 export default {

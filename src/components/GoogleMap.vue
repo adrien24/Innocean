@@ -116,6 +116,8 @@ export default {
       .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.90558099727266,2.238146178011094/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
       .then(response => (this.hyundai = response.data))
 
+
+
   },
 
 
@@ -133,7 +135,10 @@ export default {
 
 
   computed: {
+
+
     time: function () {
+      setInterval(function () { this.time(); }, 1000)
       const sec_num = parseInt(this.havas.routes[0].summary.travelTimeInSeconds, 10);
       let hours = Math.floor(sec_num / 3600);
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -172,6 +177,7 @@ export default {
 
 
       return `${hours} ${minutes} min ${seconds} sec`;
+
     },
 
     time2() {
@@ -256,7 +262,6 @@ export default {
     }
   },
 }
-
 
 </script>
 

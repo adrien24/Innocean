@@ -2,12 +2,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps'
-import moment from 'moment'
 import SlitherSlider from 'slither-slider';
+import dayjs from "dayjs";
+
+
 
 
 Vue.use(SlitherSlider)
-Vue.prototype.moment = moment
+Vue.prototype.dayjs = dayjs
 Vue.config.productionTip = false
 Vue.use(VueGoogleMaps, {
   load: {
