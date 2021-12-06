@@ -1,11 +1,10 @@
 <template>
+
   <div>
-
-
-    <div class="bloc">
+    <div class="bloc" id="bloc">
       <span style="font-weight: bold;">TRAFIC ROUTIER</span>
       <div class="bloc_container">
-        <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
+        <hr  style="margin: 0; margin-bottom: 10px;">
         <div class="ombre">
           <GmapMap
             :center='center'
@@ -17,16 +16,16 @@
             zoomControl: false, disableDefaultUI: true, keyboardShortcuts: false, }">
 
             <gmap-custom-marker :marker="InnoceanM">
-              <img src="../assets/img/innocean-dot.png" style="width: 30px">
+              <img src="../assets/img/innocean-dot.png" alt="dot" style="width: 30px">
             </gmap-custom-marker>
             <gmap-custom-marker :marker="HavasM">
-              <img src="../assets/img/havas-dot.png" style="width: 30px">
+              <img src="../assets/img/havas-dot.png" alt="dot" style="width: 30px">
             </gmap-custom-marker>
             <gmap-custom-marker :marker="KiaM">
-              <img src="../assets/img/kia-dot.png" style="width: 30px">
+              <img src="../assets/img/kia-dot.png" alt="dot" style="width: 30px">
             </gmap-custom-marker>
             <gmap-custom-marker :marker="HyundaiM">
-              <img src="../assets/img/hyundai-dot.png" style="width: 30px">
+              <img src="../assets/img/hyundai-dot.png" alt="dot" style="width: 30px">
             </gmap-custom-marker>
 
 
@@ -40,26 +39,25 @@
 
 
           <div class="hyundai" id="hyundaicolor">
-            <h2>INNOCEAN à Hyundai</h2>
+            INNOCEAN à Hyundai  <span id="info"></span>
             <div class="circulation">
               <span class="gras" v-if="hyundai">{{ time3 }} </span>
-              <div class="rond"></div>
+
             </div>
 
           </div>
 
-          <div class="kia"><h2>INNOCEAN à KIA</h2>
+          <div class="kia">
+            INNOCEAN à KIA <span id="info2"></span>
             <div class="circulation">
               <span class="gras" v-if="kia">{{ time2 }} </span>
-              <div class="rond1"></div>
             </div>
           </div>
 
           <div class="havas">
-            <h2>INNOCEAN à HAVAS</h2>
+            INNOCEAN à HAVAS <span id="info3"></span>
             <div class="circulation">
               <span class="gras" v-if="havas">{{ time }} </span>
-              <div class="rond2"></div>
             </div>
           </div>
 
@@ -153,17 +151,19 @@ export default {
         minutes = `0${minutes}`;
       }
 
-      if (minutes >= 0 && minutes < 10) {
-        const havas = document.querySelector('.rond2');
-        havas.style.color = '#8CB369';
+      if (minutes >= 0 && minutes < 16) {
+        const havas = document.getElementById("info3");
+        havas.textContent = "(Trafic fluide)";
 
-      } else if (minutes >= 10 && minutes < 11) {
-        const havas = document.querySelector('.rond2');
-        havas.style.color = '#FFBA49';
+      }
+      else if (minutes >= 16 && minutes < 18) {
+        const havas = document.getElementById("info3");
+        havas.textContent = "(Trafic modéré)";
 
-      } else {
-        const havas = document.querySelector('.rond2');
-        havas.style.color = '#D94554';
+      }
+      else {
+        const havas = document.getElementById("info3");
+        havas.textContent = "(Trafic important)";
       }
 
       if (seconds < 10) {
@@ -193,16 +193,18 @@ export default {
       }
 
       if (minutes >= 0 && minutes < 16) {
-        const kia = document.querySelector('.rond1');
-        kia.style.color = '#8CB369';
+        const kia = document.getElementById("info2");
+        kia.textContent = "(Trafic fluide)";
 
-      } else if (minutes >= 16 && minutes < 18) {
-        const kia = document.querySelector('.rond1');
-        kia.style.color = '#FFBA49';
+      }
+      else if (minutes >= 16 && minutes < 18) {
+        const kia = document.getElementById("info2");
+        kia.textContent = "(Trafic modéré)";
 
-      } else {
-        const kia = document.querySelector('.rond1');
-        kia.style.color = '#D94554';
+      }
+      else {
+        const kia = document.getElementById("info2");
+        kia.textContent = "(Trafic important)";
       }
 
       if (seconds < 10) {
@@ -233,28 +235,29 @@ export default {
       }
 
       if (minutes >= 0 && minutes < 16) {
-        const hyundai = document.querySelector('.rond');
-        hyundai.style.color = '#8CB369';
+        const hyundai = document.getElementById("info");
+        hyundai.textContent = "(Trafic fluide)";
 
-      } else if (minutes >= 16 && minutes < 18) {
-        const hyundai = document.querySelector('.rond');
-        hyundai.style.color = '#FFBA49';//
-      } else {
-        const hyundai = document.querySelector('.rond');
-        hyundai.style.color = '#D94554';
       }
+      else if (minutes >= 16 && minutes < 18) {
+        const hyundai = document.getElementById("info");
+        hyundai.textContent = "(Trafic modéré)";
 
+      }
+      else {
+        const hyundai = document.getElementById("info");
+        hyundai.textContent = "(Trafic important)";
+      }
 
       if (seconds < 10) {
         seconds = `0${seconds}`;
       }
-
       return `${hours} ${minutes} min ${seconds} sec`;
     }
   },
-
-
 }
+
+
 </script>
 
 <style scoped>
@@ -263,11 +266,6 @@ body {
   margin: 0;
 }
 
-
-{
-  display: none
-;
-}
 .bloc {
   font-family: 'Montserrat', sans-serif;
   height: auto;
@@ -278,29 +276,22 @@ body {
   color: rgba(223, 83, 31, 1);
   font-size: 20px;
   padding: 10px;
-
-}
-
-.cls-1 {
-  fill: black !important;
-  filter: opacity(80%);
-}
-
-svg {
-  width: 20px;
 }
 
 .trajet {
   text-align: center;
   margin: 15px 0 !important;
-
 }
 
 .trajet div {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .bloc div {
+  margin-top: 5px;
+}
+
+.blocnuit div{
   margin-top: 5px;
 }
 
@@ -313,23 +304,15 @@ svg {
   box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.04);
 }
 
-
 .circulation {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
 }
 
 
-.rond, .rond1, .rond2 {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 3px solid ;
-  display: block;
-  margin-left: 2%;
-
+#info, #info2, #info3{
+  font-size: 14px;
+  font-style: italic;
 }
-
-
 </style>

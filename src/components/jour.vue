@@ -2,7 +2,7 @@
 
   <div id="jour">
 
-    <div class="barre">
+    <div class="barre" id="barre">
       <div class="gauche">
         <div v-if="info"><img class="change-color" v-bind:src="'https://web.innocean.app/rocket/adrien/image_innocean/' + info.current.weather[0].icon + '.svg'">
         </div>
@@ -89,6 +89,12 @@ body {
 }
 
 .barre div {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.barrenuit div {
   display: flex;
   align-items: center;
   margin: 5px;

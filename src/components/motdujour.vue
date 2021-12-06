@@ -1,9 +1,9 @@
 <template>
   <div id="motdujour">
-    <div class="trafic">
+    <div class="mot" id="mot">
       <span style="font-weight: bold; margin-left: 5%;">MOT DU JOUR</span>
       <div class="trafic_container">
-        <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
+        <hr style="width: 90%; margin: 0; margin-bottom: 10px;">
         <div>« {{ resultat.fr }} »</div>
         <div>« {{ resultat.co }} »</div>
         <div>« {{ resultat.latin }} »</div>
@@ -38,7 +38,7 @@ body{
   margin: 0;
 }
 
-.trafic{
+.mot{
   font-family: 'Montserrat', sans-serif;
   padding: 15px 0;
   height: auto;
@@ -49,8 +49,6 @@ body{
   color: rgba(223,83,31,1);
   font-size: 20px ;
   width: 95%;
-
-
 }
 
 .trafic_container{
@@ -59,7 +57,11 @@ body{
   align-items: center;
 }
 
-.trafic div{
+.mot div{
+  margin-top: 5px;
+}
+
+.motnuit div{
   margin-top: 5px;
 }
 </style>

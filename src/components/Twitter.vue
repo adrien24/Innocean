@@ -1,15 +1,15 @@
+
 <template>
-  <div class="trafic">
+  <div class="trafic" id="twitter">
     <span style="font-weight: bold; margin-left: 5%;">TRAFIC</span>
     <div class="trafic_container">
-      <hr color="#df531f" style="width: 90%; margin: 0; margin-bottom: 10px;">
+      <hr style="width: 90%; margin: 0; margin-bottom: 10px;">
 
-      <a class="twitter-timeline" href="https://twitter.com/my_innobot/lists/1463433822901608450" data-chrome="noheader nofooter transparent noscrollbar" data-height="705" data-width="400"  ></a>
-
-
+      <a class="twitter-timeline"  href="https://twitter.com/my_innobot/lists/1463433822901608450" data-chrome="noheader nofooter transparent noscrollbar"  data-height="720" data-width="400" data-theme="dark"></a>
 
     </div>
   </div>
+
 
 </template>
 
@@ -17,6 +17,8 @@
 export default {
   name: "Twitter"
 }
+
+
 </script>
 
 <style scoped>
@@ -29,7 +31,7 @@ body{
   font-family: 'Montserrat', sans-serif;
   width: 95%;
   margin-left: 5%;
-  background-color: #FFFCF7;
+  background-color: rgba(255, 252, 247, 1);
   border-radius: 10px;
   border: solid 1px rgba(223,83,31,0.40);
   box-shadow: 30px 10px 75px 1px rgba(223,83,31,0.30);
@@ -51,9 +53,12 @@ body{
   margin-top: 5px;
 }
 
-.ombre{
-  box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.04);
+.traficnuit div{
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
+
+
 
 
 
