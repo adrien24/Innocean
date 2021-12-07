@@ -46,7 +46,7 @@
   function myFunction () {
     let date = new Date();
     let heure = date.getHours();
-    if( heure >= 7 && heure < 19){
+    if( heure >= 7 && heure < 12){
       var body = document.body;
       body.className = " fondjour";
       const dark = document.getElementById("nuit");

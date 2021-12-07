@@ -6,8 +6,8 @@
       <div class="trafic_container">
         <hr style="width: 90%; margin: 0; margin-bottom: 10px;">
 
-        <div class="bloc_container_scnd">
-          <ul id="demo">
+        <div class="bloc_container_scnd" style="width: 90%;">
+          <ul id="demo" style="width: 100%;">
           </ul>
 
         </div>
@@ -109,9 +109,10 @@ document.getElementById("demo").innerHTML = text;
 }
 function myFunctionAnniv(item, index) {
   let annivMonth = Number((item.date).split("-")[0]) - 1;
-  text += "<li>" + item.name + ' ' + (item.date).split("-")[1] + ' ' + months[annivMonth] + "</li>";
+  text += "<li style='display: flex; justify-content: space-between;>" + '<div>' + item.name + '</div>' + ' ' + "<div style='font-weight: bold; text-align: right'>" + (item.date).split("-")[1] + ' ' + months[annivMonth] + "</div>" + "</li>";
 }
 
+//display: block
 </script>
 
 <style scoped>
