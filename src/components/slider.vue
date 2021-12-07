@@ -45,44 +45,15 @@
     </slither-slider>
   </div>
 
-
-
 </template>
 
 <script>
 
-
-
-
 export default {
-  name: "slidertest"}
+  name: "slidertest"
+}
 </script>
 
 <style scoped>
-img {
-
-
-
-}
-
-
-
-
-.slider{
-  border-radius: 10px;
-  width: 100%;
-}
-
-.sliderjour {
-  margin-top: 20px;
-  border-radius: 10px;
-  width: 95%;
-  border: solid 1px rgba(223,83,31,0.40);
-  box-shadow: 5px 10px 30px 1px rgba(223,83,31,0.30);
-
-}
-
-
-
 
 </style>

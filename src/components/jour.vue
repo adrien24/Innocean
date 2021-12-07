@@ -1,35 +1,36 @@
 <template>
 
   <div id="jour">
-
-    <div class="barre" id="barre">
+    <div class="barre">
       <div class="gauche">
-        <div v-if="info"><img class="change-color" v-bind:src="'https://web.innocean.app/rocket/adrien/image_innocean/' + info.current.weather[0].icon + '.svg'">
+        <div v-if="info"><img class="change-size"
+                              v-bind:src="'https://web.innocean.app/rocket/adrien/image_innocean/' + info.current.weather[0].icon + '.svg'">
         </div>
-        <div v-if="info"><span class="gras">{{ Math.round(info.current.temp) }}°C</span></div>
-        <div v-if="info">{{ info.current.weather[0].description }}</div>
+        <p v-if="info" class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
+        <p v-if="info"> {{ info.current.weather[0].description }}</p>
       </div>
       <div class="centre" style="padding-left: 8%">
-        <div><span class="gras">INNOCEAN</span></div>
+        <h1>INNOCEAN</h1>
       </div>
       <div class="droite" v-if="heure">
 
-        <div>{{
+        <div id="date">{{
             dayjs().format('dddd DD MMMM')
-          }}</div>
+          }}
+        </div>
         <div style="width: 190px"><span class="gras">{{ dayjs().format('HH : mm : ss', 'fr') }}</span></div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 import axios from "axios";
+
 const dayjs = require("dayjs");
 require('dayjs/locale/fr')
 dayjs.locale('fr')
-
-
 
 export default {
 
@@ -37,10 +38,7 @@ export default {
     return {
       heure: "",
       info: null,
-
     }
-
-
   },
 
   created() {
@@ -56,8 +54,6 @@ export default {
     }
   },
 
-
-
   mounted() {
     axios
       .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
@@ -67,58 +63,6 @@ export default {
 
 </script>
 
-
 <style scoped>
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap');
-
-body {
-  margin: 0;
-}
-
-.barre {
-  font-family: 'Montserrat', sans-serif;
-  width: 86.5%;
-  height: 80px;
-  background-color: #FFFCF7;
-  border-radius: 10px;
-  border: solid 1px rgba(223, 83, 31, 0.40);
-  box-shadow: 30px 10px 75px 1px rgba(223, 83, 31, 0.30);
-  color: rgba(223, 83, 31, 1);
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.barre div {
-  display: flex;
-  align-items: center;
-  margin: 5px;
-}
-
-.barrenuit div {
-  display: flex;
-  align-items: center;
-  margin: 5px;
-}
-
-
-#jour{
-  padding-top: 25px;
-}
-
-.gras {
-  font-weight: bold;
-  font-size: 35px;
-}
-
-.change-color {
-  width: 50px;
-  fill: #F05921;
-}
-
 
 </style>

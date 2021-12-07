@@ -2,14 +2,14 @@
 
   <div>
     <div class="bloc" id="bloc">
-      <span style="font-weight: bold;">TRAFIC ROUTIER</span>
+      <h2>TRAFIC ROUTIER</h2>
       <div class="bloc_container">
-        <hr  style="margin: 0; margin-bottom: 10px;">
+        <hr>
         <div class="ombre">
           <GmapMap
             :center='center'
             :zoom='12'
-            style='width:100%;  height: 420px;'
+            style='width:100%;  height: 45vh;'
             ref="roadmap"
 
             :options="{ mapId: 'a133224cece007d1', streetViewControl: false, mapTypeControl: false, scaleControl: false,
@@ -39,7 +39,7 @@
 
 
           <div class="hyundai" id="hyundaicolor">
-            INNOCEAN à Hyundai  <span id="info"></span>
+            <span>INNOCEAN à Hyundai</span>  <span id="info"></span>
             <div class="circulation">
               <span class="gras" v-if="hyundai">{{ time3 }} </span>
 
@@ -48,14 +48,14 @@
           </div>
 
           <div class="kia">
-            INNOCEAN à KIA <span id="info2"></span>
+            <span>INNOCEAN à KIA</span> <span id="info2"></span>
             <div class="circulation">
               <span class="gras" v-if="kia">{{ time2 }} </span>
             </div>
           </div>
 
           <div class="havas">
-            INNOCEAN à HAVAS <span id="info3"></span>
+            <span>INNOCEAN à HAVAS</span> <span id="info3"></span>
             <div class="circulation">
               <span class="gras" v-if="havas">{{ time }} </span>
             </div>
@@ -74,12 +74,12 @@
 import axios from "axios";
 import GmapCustomMarker from 'vue2-gmap-custom-marker';
 
-
 export default {
   name: "GoogleMap",
   components: {
     'gmap-custom-marker': GmapCustomMarker
   },
+
   data() {
     return {
       center: {lat: 48.89174573005072, lng: 2.2171737851586393},
@@ -115,11 +115,7 @@ export default {
     axios
       .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.90558099727266,2.238146178011094/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
       .then(response => (this.hyundai = response.data))
-
-
-
   },
-
 
   methods: {
     geolocate: function () {
@@ -133,12 +129,9 @@ export default {
     },
   },
 
-
   computed: {
+    time() {
 
-
-    time: function () {
-      setInterval(function () { this.time(); }, 1000)
       const sec_num = parseInt(this.havas.routes[0].summary.travelTimeInSeconds, 10);
       let hours = Math.floor(sec_num / 3600);
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -221,7 +214,6 @@ export default {
       return `${hours} ${minutes} min ${seconds} sec`;
     },
 
-
     time3() {
       const sec_num = parseInt(this.hyundai.routes[0].summary.travelTimeInSeconds, 10);
       let hours = Math.floor(sec_num / 3600);
@@ -267,57 +259,4 @@ export default {
 
 <style scoped>
 
-body {
-  margin: 0;
-}
-
-.bloc {
-  font-family: 'Montserrat', sans-serif;
-  height: auto;
-  background-color: #FFFCF7;
-  border-radius: 10px;
-  border: solid 1px rgba(223, 83, 31, 0.40);
-  box-shadow: 30px 10px 75px 1px rgba(223, 83, 31, 0.30);
-  color: rgba(223, 83, 31, 1);
-  font-size: 20px;
-  padding: 10px;
-}
-
-.trajet {
-  text-align: center;
-  margin: 15px 0 !important;
-}
-
-.trajet div {
-  padding-top: 10px;
-}
-
-.bloc div {
-  margin-top: 5px;
-}
-
-.blocnuit div{
-  margin-top: 5px;
-}
-
-.gras {
-  font-weight: bold;
-  font-size: 35px;
-}
-
-.ombre {
-  box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.04);
-}
-
-.circulation {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-}
-
-
-#info, #info2, #info3{
-  font-size: 14px;
-  font-style: italic;
-}
 </style>

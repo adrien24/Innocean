@@ -1,0 +1,68 @@
+@import "style-reset.css";
+@import "font.css";
+@import "mise-en-page.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap');
+
+
+:root{
+  --title: clamp(1.5rem, 3vw - 2rem, 3rem);
+  --subtitle: clamp(1rem, 3vw - 2rem, 1.5rem);
+  --paragraphe: clamp(0.75rem, 3vw - 2rem, 1.5rem);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colortext: #DEDEDE;
+    --bgcolor: rgba(54, 54, 54, 0.8);
+    --bg: linear-gradient(-45deg, #0f1011, #212224, #56575d);
+    --bordercolor: solid 1px rgba(222, 222, 222, 0.2);
+    --boxshadowcolor: 30px 10px 75px 1px rgba(0, 0, 0, 0.59);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --colortext: #e75520;
+    --bgcolor: #FFFCF7;
+    --bg: linear-gradient(-45deg, #fffff4, #fedcc3, #ffe0af);
+    --bordercolor: solid 1px rgba(223, 83, 31, 0.40);
+    --boxshadowcolor: 30px 10px 75px 1px rgba(223, 83, 31, 0.30);
+  }
+}
+
+
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--colortext)
+}
+
+h1 {
+  font-size: var(--title);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: var(--subtitle);
+}
+
+p, span {
+  font-size: var(--paragraphe);
+}
+
+.gras {
+  font-weight: bold;
+}
+
+#info, #info2, #info3 {
+  font-size: clamp(0.5rem, 3vw - 2rem, 1rem);
+  font-style: italic;
+}
+
+
+.circulation span {
+  font-size: var(--title);
+}
+
+
