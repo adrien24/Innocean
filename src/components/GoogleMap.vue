@@ -5,7 +5,7 @@
       <h2>TRAFIC ROUTIER</h2>
       <div class="bloc_container">
         <hr>
-        <div class="ombre">
+        <div class="MapSize">
           <GmapMap
             :center='center'
             :zoom='12'

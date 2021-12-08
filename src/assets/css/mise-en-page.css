@@ -45,14 +45,9 @@ h2{
   align-items: center;
 }
 
-.anniversaire > div div {
+.anniversaire > div div, .anniversairenuit > div div{
   padding-bottom: 5px;
 }
-
-.anniversairenuit > div div {
-  padding-bottom: 5px;
-}
-
 
 /*GoogleMap*/
 
@@ -66,17 +61,11 @@ h2{
   padding-top: 10px;
 }
 
-.bloc div {
+.blocnuit div,.bloc div{
   margin-top: 5px;
 }
 
-.blocnuit div{
-  margin-top: 5px;
-}
-
-
-.ombre {
-  box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.04);
+.MapSize {
   width: 90%;
   margin: auto;
 }
@@ -106,13 +95,7 @@ h2{
   margin-left: auto;
 }
 
-.barre div {
-  display: flex;
-  align-items: center;
-  margin: 5px;
-}
-
-.barrenuit div {
+.barre div, .barrenuit div  {
   display: flex;
   align-items: center;
   margin: 5px;
@@ -123,8 +106,7 @@ h2{
   padding-top: 25px;
 }
 
-
-.change-size {
+.change-size-svg {
   width: 50px;
 }
 

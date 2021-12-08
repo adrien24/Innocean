@@ -3,7 +3,7 @@
   <div id="jour">
     <div class="barre">
       <div class="gauche">
-        <div v-if="info"><img class="change-size"
+        <div v-if="info"><img class="change-size-svg"
                               v-bind:src="'https://web.innocean.app/rocket/adrien/image_innocean/' + info.current.weather[0].icon + '.svg'">
         </div>
         <p v-if="info" class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
