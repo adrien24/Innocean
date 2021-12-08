@@ -1,8 +1,8 @@
 <template>
-  <div id="motdujour">
-    <div class="bloc" id="mot">
+  <div id="motdujour" class="Pbloc fond">
+    <div id="mot">
       <h2>MOT DU JOUR</h2>
-      <div class="trafic_container">
+      <div class="mot_container">
         <hr>
         <p>« {{ resultat.fr }} »</p>
         <p>« {{ resultat.co }} »</p>

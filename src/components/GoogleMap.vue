@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <div class="bloc" id="bloc">
+    <div class="Gbloc fond" id="bloc">
       <h2>TRAFIC ROUTIER</h2>
       <div class="bloc_container">
         <hr>

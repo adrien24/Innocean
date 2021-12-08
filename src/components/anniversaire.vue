@@ -1,7 +1,7 @@
 <template>
 
-  <div id="anniversaire">
-    <div class="bloc" id="anniv">
+  <div id="anniversaire" class="Pbloc fond">
+    <div id="anniv">
       <h2>ANNIVERSAIRE</h2>
       <div class="anniv_container">
         <hr>

@@ -18,7 +18,7 @@
             dayjs().format('dddd DD MMMM')
           }}
         </div>
-        <div style="width: 190px"><span class="gras">{{ dayjs().format('HH : mm : ss', 'fr') }}</span></div>
+        <div style="width: 250px"><span class="gras">{{ dayjs().format('HH : mm : ss', 'fr') }}</span></div>
       </div>
     </div>
   </div>
