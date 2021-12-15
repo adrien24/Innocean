@@ -1,57 +1,51 @@
 <template>
 
   <div class="sliderjour" id="sliderjour">
-    <slither-slider :options="{fullscreenOffset:false, autoplay : true, loop : true ,secondsOnSlide: 5,controls: false, dots: false,  }">
-      <div>
-        <img class="slider" src="../assets/img/slider/nicolas1.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/alex.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/nicolas2.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/thomas.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/anais.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/groupe.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/eric.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/DSC_4581.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/julien.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/julienkia.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/martine.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/paul.jpg">
-      </div>
-      <div>
-        <img class="slider" src="../assets/img/slider/zoe.jpg">
-      </div>
+    <div class="swiffy-slider slider-nav-autoplay" data-slider-nav-autoplay-interval="10000">
+      <ul class="slider-container" >
+        <li v-for="agence in images"><img class="slider" :src="agence.pathLong"/></li>
 
-    </slither-slider>
+      </ul>
+    </div>
   </div>
 
 </template>
 
 <script>
 
+
+
 export default {
-  name: "slidertest"
+  name: "slidertest",
+
+  data() {
+    return {
+      images: [],
+    }
+  },
+
+  methods: {
+    importAll(r) {
+      r.keys().forEach(key => (this.images.push({pathLong: r(key), pathShort: key})));
+    },
+  },
+
+  mounted() {
+    this.importAll(require.context('../assets/img/', true, /\.webp$/));
+    swiffyslider.init(this.mounted = document.body);
+  }
 }
+
+
+  // Methods
+
+
+
+
+
+
+
+
 </script>
 
 <style scoped>

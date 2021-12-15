@@ -2,6 +2,7 @@
 
   <div class="Accueil">
     <router-link to="/"></router-link>
+    <h1>lalalalalallalaallalalla</h1>
   </div>
 
 </template>
@@ -11,9 +12,9 @@
 export default {
   name: 'Accueil',
 
-  created() {
+/*  created() {
     setTimeout(() => this.$router.push({path: '/'}), 5000);
-  }
+  }*/
 }
 
 </script>

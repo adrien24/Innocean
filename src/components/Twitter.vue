@@ -1,25 +1,73 @@
 <template>
+
   <div class="Gbloc fond" id="twitter">
     <h2>TRAFIC</h2>
     <div class="trafic_container">
       <hr>
-      <div id="joure">
-        <a class="twitter-timeline blue" id="blue" href="https://twitter.com/my_innobot/lists/1463433822901608450"
-           data-chrome="noheader nofooter transparent noscrollbar" data-height="3000" data-width="400"></a>
+      <div v-if="myFunction()" id="light">
+        <TwitterFeed
+                     src="https://twitter.com/my_innobot/lists/1463433822901608450?ref_src=twsrc%5Etfw"
+                     data-chrome="transparent nofooter noheader" data-theme="light"></TwitterFeed>
+      </div>
+
+
+      <div v-else id="dark">
+        <TwitterFeed src="https://twitter.com/my_innobot/lists/1463433822901608450?ref_src=twsrc%5Etfw"
+                     data-chrome="transparent nofooter noheader" data-theme="dark"></TwitterFeed>
       </div>
     </div>
   </div>
-
 
 </template>
 
 <script>
 
+import axios from "axios";
+
 export default {
   name: "Twitter",
+
+  data() {
+    return {
+      info: null,
+    }
+  },
+
+  mounted() {
+    setInterval(this.myFunction, 1000)
+  },
+
+
+  methods:{
+    myFunction(){
+      //let unix_timestamp = info.timestamp
+      let date = new Date(/*unix_timestamp * 1000*/);
+      let heure = date.getHours();
+        if (heure >= 7 && heure < 19) {
+          return true
+        } else {
+          return false
+        }
+
+    },
+    /*callWether() {
+      axios
+        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
+        .then(response => (this.info = response.data))
+    },*/
+
+  }
+
+
+
 }
 
 </script>
 
 <style scoped>
+
+#dark, #light {
+  width: 90%;
+}
+
 </style>

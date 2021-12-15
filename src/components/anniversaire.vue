@@ -2,9 +2,12 @@
 
   <div id="anniversaire" class="Pbloc fond">
     <div id="anniv">
-      <h2>ANNIVERSAIRE</h2>
+      <h2>ANNIVERSAIRES</h2>
       <div class="anniv_container">
         <hr>
+        <div class="bloc_container_frst">
+          <div id="demo1"></div>
+        </div>
         <div class="bloc_container_scnd" style="width: 90%;">
           <ul id="demo" style="width: 100%;">
           </ul>
@@ -17,52 +20,88 @@
 
 <script>
 import anniversaire from "../assets/js/anniv";
+import dayjs from "dayjs";
 
 export default {
   name: "anniversaire",
-
 }
+
 
 const fmt = md => md.split('-').map(p => `0${p}`.slice(-2)).join('-');
 const now = new Date();
 const year = new Date().getFullYear();
 const nww = fmt(`${now.getMonth() + 1}-${now.getDate()}`);
 const nw = new Date(`${year}-${nww}`).getTime();
-
+console.log(nww)
 
 const ordered = anniversaire.map(({date: d, name}) => ({
   date: d, name, d: `${d < nww ? (year + 1) : year}-${d}`
 })).map(({
-  d, ...rest
-  }) => ({
+           d, ...rest
+         }) => ({
   ...rest, d, ...{
-  t: new Date(d).getTime()
+    t: new Date(d).getTime()
   }
 })).sort((a, b) => (a.t - nw) - (b.t - nw)).map(({
-  date,
-  name
-  }) => ({
+                                                   date,
+                                                   name
+                                                 }) => ({
   date,
   name
 }));
 
-console.log(ordered);
 const nextanniv = ordered.slice(0, 5);
-console.log(nextanniv);
+const nowanniv = ordered.slice(0, 5);
+
 
 var months = ["Janvier", "Fevrirer", "Mars", "Avril", "Mai", "Juin",
   "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"];
 
+
 let text = "";
+let text1 = "";
+
 nextanniv.forEach(myFunctionAnniv);
+
+nowanniv.forEach(myAnniv);
 window.onload = function () {
+  document.getElementById("demo1").innerHTML = text1;
   document.getElementById("demo").innerHTML = text;
 }
 
+
+
+
+
+setInterval(window.onload, 1000)
+
+
+
 function myFunctionAnniv(item, index) {
   let annivMonth = Number((item.date).split("-")[0]) - 1;
-  text += "<div style='display: flex; justify-content: space-between'>" + "<p>" + item.name + "</p>" + ' ' + "<p style='font-weight: bold'>" + (item.date).split("-")[1] + ' ' + months[annivMonth] + "</p>" + "</div>";
+  if(nww === item.date){
+    return false
+  }else{
+    text += "<dl class='anniv_place'>" + "<dt>" + item.name + "</dt>" + ' ' + "<dd>" + (item.date).split("-")[1] + ' ' + months[annivMonth] + "</dd>" + "</dl>";
+
+  }
+ }
+
+function myAnniv(item, index) {
+  let annivMonth = Number((item.date).split("-")[0]) - 1;
+
+  if(nww === item.date){
+    text1 += "<h2>" + "Joyeux anniversaire à" + "</h2>" + "<dl class='anniv_day_place'>" + "<span>" + item.name + "</span>" + "<span>" + '&nbsp;et&nbsp;' + "</span>" + "</dl>";
+  }else if (nww === item.date && item.name >= 1){
+    console.log('oauis')
+  }
+
 }
+
+
+
+
+
 
 </script>
 

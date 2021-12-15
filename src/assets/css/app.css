@@ -1,13 +1,14 @@
-@import "style-reset.css";
 @import "font.css";
+@import "style-reset.css";
 @import "mise-en-page.css";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap');
 
 
 :root{
-  --title: clamp(1.5rem, 3vw - 2rem, 3rem);
-  --subtitle: clamp(1rem, 3vw - 2rem, 1.5rem);
-  --paragraphe: clamp(0.75rem, 3vw - 2rem, 1.5rem);
+  --title: clamp(1.5rem, 3vw - 2rem, 4rem);
+  --heure: clamp(12rem, 24vw - 16rem, 24rem);
+  --subtitle: clamp(1rem, 3vw - 2rem, 3rem);
+  --paragraphe: clamp(0.75rem, 2.75vw - 2rem, 3rem);
 }
 
 
@@ -47,7 +48,7 @@ h2 {
   font-size: var(--subtitle);
 }
 
-p, span {
+p, span, dt, dd {
   font-size: var(--paragraphe);
 }
 
@@ -56,7 +57,7 @@ p, span {
 }
 
 #info, #info2, #info3 {
-  font-size: clamp(0.5rem, 3vw - 2rem, 1rem);
+  font-size: clamp(0.5rem, 2.5vw - 2rem, 2rem);
   font-style: italic;
 }
 

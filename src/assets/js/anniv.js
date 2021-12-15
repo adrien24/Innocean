@@ -40,6 +40,9 @@ const anniversaire = [
   {date: '11-06', name: 'Jean-Baptiste'},
   {date: '11-25', name: 'Mamou'},
   {date: '11-28', name: 'Thomas'},
+  {date: '12-15', name: 'Nicolas 1'},
+  {date: '12-15', name: 'Nicolas 2'},
+
   {date: '12-19', name: 'Nicolas'},
   {date: '12-22', name: 'Jeong Joon'},
   {date: '06-16', name: 'Hugo'}

@@ -82,7 +82,7 @@ export default {
 
   data() {
     return {
-      center: {lat: 48.89174573005072, lng: 2.2171737851586393},
+      center: {lat: 48.878791271511965, lng: 2.271858773500786},
       havas: null,
       kia: null,
       hyundai: null,
@@ -94,7 +94,7 @@ export default {
     }
   },
 
-  mounted() {
+  mounted(){
     this.geolocate();
     this.$refs.roadmap.$mapPromise.then(map => {
 
@@ -102,36 +102,58 @@ export default {
       trafficLayer.setMap(map)
     })
     this.$refs.roadmap.$mapPromise.then((map) => {
-      map.panTo({lat: 48.89174573005072, lng: 2.2171737851586393})
+      map.panTo({lat: 48.878791271511965, lng: 2.271858773500786})
     })
-    axios
-      .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.880589206580616,2.244400876233613/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
-      .then(response => (this.havas = response.data))
 
-    axios
-      .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.887380083145864,2.1652471948053527/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
-      .then(response => (this.kia = response.data))
+    // Run the functions once when mounted
+    this.callHavas();
+    this.callKia();
+    this.callHyundai();
 
-    axios
-      .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.90558099727266,2.238146178011094/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
-      .then(response => (this.hyundai = response.data))
+    this.intervalFetchData();
   },
 
   methods: {
     geolocate: function () {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
-          lat: 48.89174573005072,
-          lng: 2.2171737851586393,
+          lat: 48.878791271511965,
+          lng: 2.271858773500786,
         };
 
       });
     },
+
+    callHavas: function () {
+      axios
+        .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.880589206580616,2.244400876233613/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
+        .then(response => (this.havas = response.data))
+    },
+    callKia: function () {
+      axios
+        .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.887380083145864,2.1652471948053527/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
+        .then(response => (this.kia = response.data))
+    },
+    callHyundai: function () {
+      axios
+        .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.90558099727266,2.238146178011094/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
+        .then(response => (this.hyundai = response.data))
+    },
+   intervalFetchData: function () {
+      setInterval(() => {
+        this.callHavas();
+        this.callKia();
+        this.callHyundai();
+      }, 180000);
+    }
+
   },
+
 
   computed: {
     time() {
-
+      setInterval(()=>{
+        this.time}, 60000)
       const sec_num = parseInt(this.havas.routes[0].summary.travelTimeInSeconds, 10);
       let hours = Math.floor(sec_num / 3600);
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -174,6 +196,8 @@ export default {
     },
 
     time2() {
+      setInterval(()=>{
+        this.time2}, 60000)
       const sec_num = parseInt(this.kia.routes[0].summary.travelTimeInSeconds, 10);
       let hours = Math.floor(sec_num / 3600);
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -215,6 +239,8 @@ export default {
     },
 
     time3() {
+      setInterval(()=>{
+        this.time3}, 60000)
       const sec_num = parseInt(this.hyundai.routes[0].summary.travelTimeInSeconds, 10);
       let hours = Math.floor(sec_num / 3600);
       let minutes = Math.floor((sec_num - (hours * 3600)) / 60);

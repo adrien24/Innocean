@@ -14,11 +14,9 @@
       </div>
       <div class="droite" v-if="heure">
 
-        <div id="date">{{
-            dayjs().format('dddd DD MMMM')
-          }}
+        <div id="date"><p>{{ dayjs().format('dddd DD MMMM') }}</p>
         </div>
-        <div style="width: 250px"><span class="gras">{{ dayjs().format('HH : mm : ss', 'fr') }}</span></div>
+        <div class="respheure"><span class="gras">{{ dayjs().format('HH : mm : ss', 'fr') }}</span></div>
       </div>
     </div>
   </div>
@@ -27,6 +25,7 @@
 
 <script>
 import axios from "axios";
+
 
 const dayjs = require("dayjs");
 require('dayjs/locale/fr')
@@ -37,12 +36,19 @@ export default {
   data() {
     return {
       heure: "",
-      info: null,
+      api: [],
+      info: [],
     }
   },
 
   created() {
     setInterval(this.getNow, 1000);
+  },
+
+  mounted() {
+    this.callWether();
+    this.intervalFetchData();
+    this.callapi();
   },
 
   methods: {
@@ -51,15 +57,22 @@ export default {
       const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       const dateTime = ' ' + time;
       this.heure = dateTime;
-    }
-  },
+    },
+    callWether() {
+      axios
+        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
+        .then(response => (this.info = response.data))
+    },
 
-  mounted() {
-    axios
-      .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
-      .then(response => (this.info = response.data))
+    intervalFetchData: function () {
+      setInterval(() => {
+        this.callWether();
+        this.info = info
+      }, 600000);
+    }
   }
 }
+
 
 </script>
 
