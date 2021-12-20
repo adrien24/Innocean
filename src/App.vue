@@ -47,9 +47,11 @@ export default {
       if (this.info.current.dt <= this.info.current.sunrise && this.info.current.dt > this.info.current.sunset) {
         const theme = document.getElementById('app')
         theme.setAttribute('data-theme','lightMode')
+
       } else {
         const theme = document.getElementById('app')
         theme.setAttribute('data-theme','darkMode')
+       document.getElementById("nb").style.filter = "grayscale(100%)";
       }
     },
 

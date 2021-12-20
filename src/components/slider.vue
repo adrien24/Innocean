@@ -2,8 +2,8 @@
 
   <div class="sliderjour" id="sliderjour">
     <div class="swiffy-slider slider-nav-autoplay" data-slider-nav-autoplay-interval="10000">
-      <ul class="slider-container" >
-        <li v-for="agence in images"><img class="slider" :src="agence.pathLong"/></li>
+      <ul class="slider-container" id="nb" >
+        <li v-for="agence in images" ><img  class="slider" :src="agence.pathLong"/></li>
 
       </ul>
     </div>
