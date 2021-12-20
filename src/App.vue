@@ -1,9 +1,10 @@
 <template>
 
-  <div id="app">
+  <div id="app" v-if="myFunction">
     <transition
       name="fade"
       mode="out-in">
+
       <router-view/>
     </transition>
   </div>
@@ -11,54 +12,57 @@
 </template>
 
 <script>
-import GoogleMap from './components/GoogleMap.vue'
-import jour from './components/jour'
-import slider from "./components/slider";
-import anniversaire from "./components/anniversaire";
-import Twitter from "./components/Twitter";
-import motdujour from "./components/motdujour";
-import Accueil from "./pages/Accueil";
-import heure from "./pages/heure";
-
-
-//setTimeout((function() {
-//window.location.reload();
-//}), 600000);
+import axios from "axios";
 
 export default {
-  name: 'App',
-  components: {
-    slider,
-    GoogleMap,
-    jour,
-    anniversaire,
-    Twitter,
-    motdujour,
-    Accueil,
+
+  data() {
+    return {
+      info: null,
+
+    }
   },
 
   mounted() {
-    this.myInterval()
-    this.myHours()
+    this.myHours();
+    this.callWeather()
+    setInterval(this.myFunction, 1000)
+    setInterval(this.myHours, 1000)
   },
 
-  methods:{
-    myHours(){
+  methods: {
+
+    myHours() {
       let date = new Date();
       let minutes = date.getMinutes();
       let secondes = date.getSeconds();
       if (minutes === 59 && secondes === 50) {
         setTimeout(() => this.$router.push({path: '/heure'}), 0);
-      }else if (minutes === 0){
+      } else if (minutes === 0) {
         setTimeout(() => this.$router.push({path: '/'}), 30000);
-
       }
     },
 
-    myInterval(){
-      setInterval(this.myHours, 1000)
+    myFunction() {
+      if (this.info.current.dt <= this.info.current.sunrise && this.info.current.dt > this.info.current.sunset) {
+        const theme = document.getElementById('app')
+        theme.setAttribute('data-theme','lightMode')
+      } else {
+        const theme = document.getElementById('app')
+        theme.setAttribute('data-theme','darkMode')
+      }
+    },
+
+    callWeather(){
+      axios
+        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
+        .then(response => (this.info = response.data))
     }
+
+
+
   }
+
 
 }
 
@@ -80,14 +84,11 @@ html {
 .fade-leave-to {
   opacity: 0;
   transform: translateX(2em);
-
-
 }
 
 
 .fade-enter-active, .fade-leave-active {
   transition: all .3s ease;
-
 }
 
 </style>

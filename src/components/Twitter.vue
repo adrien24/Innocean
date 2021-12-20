@@ -15,6 +15,7 @@
         <TwitterFeed src="https://twitter.com/my_innobot/lists/1463433822901608450?ref_src=twsrc%5Etfw"
                      data-chrome="transparent nofooter noheader" data-theme="dark"></TwitterFeed>
       </div>
+
     </div>
   </div>
 
@@ -29,37 +30,34 @@ export default {
 
   data() {
     return {
-      info: null,
+      info: [],
+
     }
   },
 
   mounted() {
+    this.callWeather()
     setInterval(this.myFunction, 1000)
   },
 
-
-  methods:{
-    myFunction(){
-      //let unix_timestamp = info.timestamp
-      let date = new Date(/*unix_timestamp * 1000*/);
-      let heure = date.getHours();
-        if (heure >= 7 && heure < 19) {
-          return true
-        } else {
-          return false
-        }
-
+  methods: {
+    myFunction() {
+      if (this.info.current.dt <= this.info.current.sunrise && this.info.current.dt > this.info.current.sunset) {
+        return true
+      } else {
+        return false
+      }
     },
-    /*callWether() {
-      axios
-        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
-        .then(response => (this.info = response.data))
-    },*/
+
+      callWeather(){
+        axios
+          .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
+          .then(response => (this.info = response.data))
+      }
+
+
 
   }
-
-
-
 }
 
 </script>

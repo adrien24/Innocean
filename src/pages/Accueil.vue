@@ -1,4 +1,4 @@
-<template v-if="myFunction">
+<template>
 
   <div class="Accueil">
     <jour/>
@@ -16,6 +16,7 @@
       </div>
     </div>
   </div>
+
 
 </template>
 
@@ -40,13 +41,8 @@ export default {
   },
 
 
-
-
   created(){
-
       setTimeout(() => this.$router.push({path: '/meteo'}), 600000);
-
-
     },
 
 

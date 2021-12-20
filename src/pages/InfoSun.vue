@@ -11,7 +11,7 @@
         </div>
 
         <div v-for="(important, key) in important" :key="'B' + key">
-          <p v-for="value in semaine" :key="value.id">{{ value.Information_importantes }}</p>
+          <p v-for="value in important" :key="value.id">{{ value.Information_importantes }}</p>
         </div>
 
 
@@ -28,6 +28,7 @@ export default {
     return {
       jour: [],
       semaine: [],
+      important: [],
     }
   },
 

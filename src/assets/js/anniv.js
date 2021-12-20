@@ -18,11 +18,11 @@ const anniversaire = [
   {date: '05-08', name: 'Martine'},
   {date: '05-19', name: 'Alexandre'},
   {date: '05-26', name: 'Sarah'},
+  {date: '06-16', name: 'Hugo'},
   {date: '06-19', name: 'Benoît'},
   {date: '06-24', name: 'Adrien'},
   {date: '07-01', name: 'Andréa'},
   {date: '07-27', name: 'Laurent'},
-  {date: '07-06', name: 'Nalini'},
   {date: '07-13', name: 'Doris'},
   {date: '07-25', name: 'Marie'},
   {date: '07-28', name: 'Laetitia'},
@@ -30,22 +30,17 @@ const anniversaire = [
   {date: '09-01', name: 'Damien'},
   {date: '09-23', name: 'Muriel'},
   {date: '10-07', name: 'Zoe'},
-  {date: '10-08', name: 'Emmanuel'},
   {date: '10-17', name: 'Sun Hyung'},
-  {date: '10-18', name: 'Julien'},
-  {date: '10-20', name: 'Christopher'},
-  {date: '10-20', name: 'Julien'},
+  {date: '10-18', name: 'Julien B'},
+  {date: '10-20', name: 'Julien P'},
   {date: '10-21', name: 'Jeong Hoon'},
   {date: '11-03', name: 'Fabien'},
   {date: '11-06', name: 'Jean-Baptiste'},
   {date: '11-25', name: 'Mamou'},
   {date: '11-28', name: 'Thomas'},
-  {date: '12-15', name: 'Nicolas 1'},
-  {date: '12-15', name: 'Nicolas 2'},
-
   {date: '12-19', name: 'Nicolas'},
   {date: '12-22', name: 'Jeong Joon'},
-  {date: '06-16', name: 'Hugo'}
+
 ];
 
 export default anniversaire
