@@ -1,84 +1,62 @@
 <template>
 <div id="infoImportant">
+
   <div class="bas">
     <dl>
       <dt>Infos</dt>
       <dd style="display: flex">
-        <marquee-text :duration="15" v-for="(important, key) in important" :key="'D' + key">
-          <div v-for="value in important" v-bind:key="'7' + value.id" v-if="value.Date_de_debut <= dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr')" :v-if="deleteI()">
+        <marquee-text :duration="15" v-for="(semaine, key) in semaine" :key="'D' + key">
+          <div v-for="value in semaine" v-bind:key="'7' + value.id" v-if="value.Date_de_debut <= dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr')" :v-if="deleteS()">
               &nbsp;<span>Nouvelle info :&nbsp;</span><p>{{ value.Commentaire }} </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
       </marquee-text>
       </dd>
     </dl>
   </div>
+
 </div>
-
-
-
-
-
 </template>
 
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
 
-
-
 export default {
   name: "infoImportant",
 
   data() {
     return {
-      important: [],
+      semaine: [],
     }
   },
-
 
   mounted() {
-    this.callapiI();
-    this.verif();
+    this.callapiS();
   },
+
 
   methods: {
-    callapiI() {
+
+    callapiS() {
       axios
-        .get('http://192.168.70.77:8055/items/Informations?filter[Tag][_eq]=Important')
-        .then(response => (this.important = response.data))
+        .get('http://192.168.70.77:8055/items/Informations?filter[Tag][_eq]=Semaine')
+        .then(response => (this.semaine = response.data))
     },
 
-
-
-  deleteI: function () {
-    for (let i = 0; i < this.important.data.length; i++) {
-      if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.important.data[i].Date_de_fin) {
-        axios
-          .delete("http://192.168.70.77:8055/items/Informations/" + this.important.data[i].id)
-          .then(() => {
-            this.callapiJ();
-          })
+    deleteS: function () {
+      for (let i = 0; i < this.semaine.data.length; i++) {
+        if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.semaine.data[i].Date_de_fin) {
+          axios
+            .delete("http://192.168.70.77:8055/items/Informations/" + this.semaine.data[i].id)
+            .then(() => {
+              this.callapiJ();
+            })
+        }
       }
-    }
-  },
-
-  verif: function () {
-      console.log(this.important.data[0].id)
-
-      let marquee = document.getElementsByClassName('marquee')
-      if (value.Commentaire) {
-        console.log('oui')
-
-        console.log(value.Commentaire)
-
-      }else{
-        console.log('non')
-      }
-    }
-
     },
-
+  }
 }
+
 </script>
 
 <style scoped>

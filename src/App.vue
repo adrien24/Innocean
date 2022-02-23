@@ -45,10 +45,15 @@ export default {
       let date = new Date();
       let minutes = date.getMinutes();
       let secondes = date.getSeconds();
+      let heures = date.getHours();
       if (minutes === 59 && secondes === 50) {
         setTimeout(() => this.$router.push({path: '/heure'}), 0);
       } else if (minutes === 0) {
         setTimeout(() => this.$router.push({path: '/'}), 30000);
+      }
+
+      if (heures === 9 || heures === 12 || heures === 16 && minutes === 2 && secondes === 0){
+        window.location.reload(true)
       }
     },
 
