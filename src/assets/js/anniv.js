@@ -26,6 +26,7 @@ const anniversaire = [
   {date: '07-13', name: 'Doris'},
   {date: '07-25', name: 'Marie'},
   {date: '07-28', name: 'Laetitia'},
+  {date: '08-05', name: 'Neil'},
   {date: '08-14', name: 'Pascal'},
   {date: '09-01', name: 'Damien'},
   {date: '09-23', name: 'Muriel'},

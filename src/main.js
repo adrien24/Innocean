@@ -4,11 +4,12 @@ import router from './router'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import dayjs from "dayjs";
 import TwitterFeed from "vuejs-twitter-feed";
-
+import MarqueeText from 'vue-marquee-text-component'
 
 
 
 Vue.use(TwitterFeed);
+Vue.component('marquee-text', MarqueeText)
 Vue.prototype.dayjs = dayjs
 Vue.config.productionTip = false
 Vue.use(VueGoogleMaps, {

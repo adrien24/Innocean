@@ -2165,6 +2165,11 @@
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
   "version" "2.6.12"
 
+"core-js@^3.6.5":
+  "integrity" "sha512-FRq5b/VMrWlrmCzwRrpDYNxyHP9BcAZC+xHJaqTgIE5091ZV1NTmyh0sGOg5XqpnHvR0svdy0sv1gWA1zmhxig=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.21.1.tgz"
+  "version" "3.21.1"
+
 "core-util-is@~1.0.0", "core-util-is@1.0.2":
   "integrity" "sha1-tf1UIgqivFq1eqtxQMlAdUUDwac="
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
@@ -4087,6 +4092,11 @@
   "resolved" "https://registry.npmjs.org/growly/-/growly-1.3.0.tgz"
   "version" "1.3.0"
 
+"gsap@^3.8.0":
+  "integrity" "sha512-JSGVYoC6da4pIjdF/yxFU6Rz8OojOIDkbooveZlfNg0+JIoFoRruyfWAEi6R/gUeNcuOiTqUIb0gi1nCNrHf8w=="
+  "resolved" "https://registry.npmjs.org/gsap/-/gsap-3.9.1.tgz"
+  "version" "3.9.1"
+
 "gzip-size@^4.1.0":
   "integrity" "sha1-iuCWJX6r59acRb4rZ8RIEk/7UXw="
   "resolved" "https://registry.npmjs.org/gzip-size/-/gzip-size-4.1.0.tgz"
@@ -4595,6 +4605,14 @@
   "integrity" "sha1-8w9xbI4r00bHtn0985FVZqfAVgc="
   "resolved" "https://registry.npmjs.org/indexes-of/-/indexes-of-1.0.1.tgz"
   "version" "1.0.1"
+
+"infinite-marquee@^1.0.7":
+  "integrity" "sha512-HVnAqKnQoRUma8ewZIt3dzWy0uB0hH7FHZQGFNFjLoETf3cDew8SE2/sWSoKf0hp1Rq2xaCE1KhHw3HNy2tVUg=="
+  "resolved" "https://registry.npmjs.org/infinite-marquee/-/infinite-marquee-1.0.7.tgz"
+  "version" "1.0.7"
+  dependencies:
+    "gsap" "^3.8.0"
+    "lodash" "^4.17.21"
 
 "inflight@^1.0.4":
   "integrity" "sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk="
@@ -5500,6 +5518,13 @@
   "integrity" "sha1-+O/3TVmdqzt9Dj/tUmTqDnBPXWc="
   "resolved" "https://registry.npmjs.org/marker-clusterer-plus/-/marker-clusterer-plus-2.1.4.tgz"
   "version" "2.1.4"
+
+"marquee-infinite@^0.0.4":
+  "integrity" "sha512-6PptmaO9Bs9ay5LEbLT/TGeKtclHiICw+EOMi2fkF/CMkJcsQyDyqBfNseDTIIGq4Pwm2T0n4Fbh6FlHU4rArQ=="
+  "resolved" "https://registry.npmjs.org/marquee-infinite/-/marquee-infinite-0.0.4.tgz"
+  "version" "0.0.4"
+  dependencies:
+    "lodash.debounce" "^4.0.8"
 
 "math-expression-evaluator@^1.2.14":
   "integrity" "sha512-nrbaifCl42w37hYd6oRLvoymFK42tWB+WQTMFtksDGQMi5GvlJwnz/CsS30FFAISFLtX+A0csJ0xLiuuyyec7w=="
@@ -9256,6 +9281,14 @@
   "resolved" "https://registry.npmjs.org/vue-loading-overlay/-/vue-loading-overlay-3.4.2.tgz"
   "version" "3.4.2"
 
+"vue-marquee-text-component@^1.2.0":
+  "integrity" "sha512-wMqr7AnyCF1VjXFAnAXavAD2yCeiBULy6AbLet/YIGaI2KzuaUmi+Q3UyFYJOM2gWt994jl2PWilnkh9heLqAA=="
+  "resolved" "https://registry.npmjs.org/vue-marquee-text-component/-/vue-marquee-text-component-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "core-js" "^3.6.5"
+    "vue" "^2.5.17"
+
 "vue-router@^3.0.1":
   "integrity" "sha512-RRQNLT8Mzr8z7eL4p7BtKvRaTSGdCbTy2+Mm5HTJvLGYSSeG9gDzNasJPP/yOYKLy+/cLG/ftrqq5fvkFwBJEw=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-3.5.1.tgz"
@@ -9296,7 +9329,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.0.0", "vue@^2.6.10", "vue@^2.6.11", "vue@^2.6.12", "vue@^2.x", "vue@~2":
+"vue@^2.0.0", "vue@^2.5.17", "vue@^2.6.10", "vue@^2.6.11", "vue@^2.6.12", "vue@^2.x", "vue@~2":
   "integrity" "sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.12.tgz"
   "version" "2.6.12"

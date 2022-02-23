@@ -1,27 +1,36 @@
 <template>
 
   <div id="app" v-if="myFunction">
+    <info-important />
     <transition
       name="fade"
       mode="out-in">
-
       <router-view/>
     </transition>
-  </div>
+
+    </div>
 
 </template>
 
 <script>
 import axios from "axios";
+import infoImportant from "./components/infoImportant";
+
+
 
 export default {
+
+  components:{
+    infoImportant
+  },
 
   data() {
     return {
       info: null,
-
     }
   },
+
+
 
   mounted() {
     this.myHours();
@@ -43,10 +52,19 @@ export default {
       }
     },
 
+
     myFunction() {
-      if (this.info.current.dt <= this.info.current.sunrise && this.info.current.dt > this.info.current.sunset) {
-        const theme = document.getElementById('app')
-        theme.setAttribute('data-theme','lightMode')
+
+      if(this.info.current.dt === this.info.current.sunset){
+        window.location.reload(true)
+      }
+
+      if (this.info.current.dt >= this.info.current.sunrise && this.info.current.dt < this.info.current.sunset) {
+
+          const theme = document.getElementById('app')
+          theme.setAttribute('data-theme','lightMode')
+
+
 
       } else {
         const theme = document.getElementById('app')
@@ -60,16 +78,9 @@ export default {
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
         .then(response => (this.info = response.data))
     }
-
-
-
   }
-
-
 }
 
-
-// Changement couleur en fonction de l'heure
 
 
 </script>

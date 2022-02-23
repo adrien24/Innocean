@@ -27,13 +27,19 @@ export default {
   methods: {
     importAll(r) {
       r.keys().forEach(key => (this.images.push({pathLong: r(key), pathShort: key})));
-
     },
   },
 
   mounted() {
     this.importAll(require.context('../assets/img/slider', true, /\.webp$/));
-    this.swiffyslider.init(this.methods = document.body);
+    setTimeout(window.onload, 1000)
+    window.onload = function () {
+      {
+        this.swiffyslider.init(this.methods = document.body);
+      }
+    }
+
+
   }
 }
 

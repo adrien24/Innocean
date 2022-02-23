@@ -27,6 +27,14 @@ dayjs.extend(calendar)
 
 export default {
   name: "anniversaire",
+  mounted() {
+    setTimeout(window.onload, 1000)
+
+    window.onload = function () {
+      document.getElementById("annivDay").innerHTML = text1;
+      document.getElementById("anniversairary").innerHTML = text;
+    }
+  }
 }
 
 
@@ -58,23 +66,15 @@ const nextanniv = ordered.slice(0, 5);
 const nowanniv = ordered.slice(0, 5);
 
 
-var months = ["Janvier", "Fevrirer", "Mars", "Avril", "Mai", "Juin",
-  "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"];
+var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+  "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"];
 
 
 let text = "";
 let text1 = "";
 
 nextanniv.forEach(myFunctionAnniv);
-
 nowanniv.forEach(myAnniv);
-window.onload = function () {
-  document.getElementById("annivDay").innerHTML = text1;
-  document.getElementById("anniversairary").innerHTML = text;
-}
-
-setInterval(window.onload, 1000)
-
 
 function myFunctionAnniv(item, index) {
   let annivMonth = Number((item.date).split("-")[0]) - 1;
@@ -98,7 +98,7 @@ function myAnniv(item, index) {
   let annivMonth = Number((item.date).split("-")[0]) - 1;
 
   if (nww === item.date) {
-    text1 += "<h2>" + "Joyeux anniversaire à" + "</h2>" + "<dl class='anniv_day_place'>" + "<span>" + item.name + "</span>" + "<span>" + '&nbsp;et&nbsp;' + "</span>" + "</dl>";
+    text1 += "<h2 style='text-align: center'>" + "Joyeux anniversaire à" + "</h2>" + "<dl class='anniv_day_place' style='text-align: center'>" + "<span>" + item.name + "</span>" + "<span>" + '&nbsp;et&nbsp;' + "</span>" + "</dl>";
   }
 }
 

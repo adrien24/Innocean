@@ -5,10 +5,10 @@
 
       <div class="gauche" v-if="info">
         <div v-if="info"><img class="change-size-svg" v-if="info"
-                              v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.current.weather[0].icon + '.svg'">
-        </div>
-        <p v-if="info" class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
-        <p v-if="info"> {{ info.current.weather[0].description }}</p>
+                               v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.current.weather[0].icon + '.svg'">
+         </div>
+         <p v-if="info" class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
+         <p v-if="info"> {{ info.current.weather[0].description }}</p>
       </div>
 
       <div class="centre" style="padding-left: 8%">
@@ -69,7 +69,7 @@ export default {
       setInterval(() => {
         this.callWeather();
         this.info = info
-      }, 600000);
+      }, 3600000);
     }
   }
 }

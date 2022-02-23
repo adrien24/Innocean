@@ -40,26 +40,12 @@ export default {
     motdujour,
   },
 
-
   created(){
-      setTimeout(() => this.$router.push({path: '/meteo'}), 600000);
+      setTimeout(() => this.$router.push({path: '/meteo'}), 300000);
     },
-
-
 }
-
-
 
 </script>
 
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-
-
-
-
-
 </style>

@@ -42,7 +42,7 @@ export default {
 
   methods: {
     myFunction() {
-      if (this.info.current.dt <= this.info.current.sunrise && this.info.current.dt > this.info.current.sunset) {
+      if (this.info.current.dt >= this.info.current.sunrise && this.info.current.dt < this.info.current.sunset) {
         return true
       } else {
         return false

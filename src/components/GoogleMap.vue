@@ -8,7 +8,7 @@
         <div class="MapSize">
           <GmapMap
             :center='center'
-            :zoom='12'
+            :zoom='11'
             style='width:100%;  height: 45vh;'
             ref="roadmap"
             :options="{ mapId: 'a133224cece007d1', streetViewControl: false, mapTypeControl: false, scaleControl: false,
@@ -74,7 +74,7 @@ export default {
 
   data() {
     return {
-      center: {lat: 48.878791271511965, lng: 2.271858773500786},
+      center: {lat: 48.86557129647681, lng: 2.308111067807308},
       havas: null,
       kia: null,
       hyundai: null,
@@ -92,7 +92,7 @@ export default {
       trafficLayer.setMap(map)
     })
     this.$refs.roadmap.$mapPromise.then((map) => {
-      map.panTo({lat: 48.878791271511965, lng: 2.271858773500786})
+      map.panTo({lat: 48.86557129647681, lng: 2.308111067807308})
     })
 
     // Run the functions once when mounted
@@ -106,8 +106,9 @@ export default {
     geolocate: function () {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
-          lat: 48.878791271511965,
-          lng: 2.271858773500786,
+         lat: 48.86557129647681,
+          lng: 2.308111067807308,
+
         };
 
       });
@@ -134,7 +135,7 @@ export default {
         this.callHavas();
         this.callKia();
         this.callHyundai();
-      }, 180000);
+      }, 1200000);
     }
   },
 

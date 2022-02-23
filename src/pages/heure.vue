@@ -1,8 +1,13 @@
 <template>
   <div id="heure">
 
-    <div class="heure" v-if="heure">
-      <h1>{{ dayjs().format('HH : mm : ss', 'fr') }}</h1>
+    <div class="heure" v-if="heure" style=" display: flex; width: fit-content; margin-left: 23%">
+
+      <h1>{{ dayjs().format('HH', 'fr') }}</h1>
+
+      <h1 style="width: fit-content">&nbsp;{{ dayjs().format(': mm :', 'fr') }}&nbsp;</h1>
+
+      <h1>{{ dayjs().format('ss', 'fr') }}</h1>
     </div>
 
   </div>
