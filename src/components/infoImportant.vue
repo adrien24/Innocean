@@ -4,10 +4,10 @@
   <div class="bas">
     <dl>
       <dt>Infos</dt>
-      <dd style="display: flex">
-        <marquee-text :duration="15" v-for="(semaine, key) in semaine" :key="'D' + key">
-          <div v-for="value in semaine" v-bind:key="'7' + value.id" v-if="value.Date_de_debut <= dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr')" :v-if="deleteS()">
-              &nbsp;<span>Nouvelle info :&nbsp;</span><p>{{ value.Commentaire }} </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <dd style="display: flex" v-if="information">
+        <marquee-text :duration="15" v-for="(information, key) in information" :key="'D' + key" >
+          <div  v-for="value in information" v-bind:key="'7' + value.id" v-if="value.Date_de_debut <= dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr')" :v-if="deleteI()" :class="value.status">
+              &nbsp;<span>{{ value.Titre }}&nbsp;:&nbsp;</span><p v-if="value">{{ value.Commentaire }} </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
       </marquee-text>
       </dd>
@@ -20,41 +20,71 @@
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
+import {isEmpty} from "lodash";
 
 export default {
   name: "infoImportant",
 
   data() {
     return {
-      semaine: [],
+      information: [],
     }
   },
 
+
+
   mounted() {
-    this.callapiS();
+    this.callapiI();
+    setTimeout(this.verif, 1000);
   },
 
 
   methods: {
 
-    callapiS() {
+    callapiI() {
       axios
-        .get('http://192.168.70.77:8055/items/Informations?filter[Tag][_eq]=Semaine')
-        .then(response => (this.semaine = response.data))
+        .get('http://192.168.70.145:8055/items/Informations?filter[Tag][_eq]=Informations')
+        .then(response => (this.information = response.data))
+        setTimeout(this.callapiI, 10000);
     },
 
-    deleteS: function () {
-      for (let i = 0; i < this.semaine.data.length; i++) {
-        if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.semaine.data[i].Date_de_fin) {
-          axios
-            .delete("http://192.168.70.77:8055/items/Informations/" + this.semaine.data[i].id)
-            .then(() => {
-              this.callapiJ();
-            })
+    verif(){
+
+      if (isEmpty(this.information.data)) {
+
+        document.querySelector('.bas').style.display = "none"
+      }else{
+
+        for (let i = 0; i < this.information.data.length; i++) {
+          if (this.information.data[i].status === 'published') {
+
+          } else if (this.information.data[i].status === 'Draft') {
+            let Draft = document.querySelectorAll('.Draft')
+            for (let i = 0; i < Draft.length; i++) {
+              console.log(Draft)
+              Draft[i].style.display = 'none';
+            }
+          }
         }
       }
     },
-  }
+
+    deleteI: function () {
+
+      for (let i = 0; i < this.information.data.length; i++) {
+        if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.information.data[i].Date_de_fin) {
+
+          axios
+            .delete("http://192.168.70.145:8055/items/Informations/" + this.information.data[i].id)
+            .then(() => {
+              this.callapiI();
+            })
+        }
+      }
+      }
+
+    },
+
 }
 
 </script>

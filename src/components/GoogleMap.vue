@@ -85,6 +85,14 @@ export default {
     }
   },
 
+
+  created() {
+    this.callHavas();
+    this.callKia();
+    this.callHyundai();
+    this.intervalFetchData();
+  },
+
   mounted() {
     this.geolocate();
     this.$refs.roadmap.$mapPromise.then(map => {
@@ -96,10 +104,7 @@ export default {
     })
 
     // Run the functions once when mounted
-    this.callHavas();
-    this.callKia();
-    this.callHyundai();
-    this.intervalFetchData();
+
   },
 
   methods: {

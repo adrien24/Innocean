@@ -4,8 +4,8 @@
       <h1>Informations</h1>
       <ul>
         <li v-if="this.important.data[0].Date_de_debut <= dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr')" :v-if="deleteI(this.important.data[0].id)">
-            <h2>{{ this.important.data[0].Titre }}</h2>
-            <p>{{ this.important.data[0].Commentaire }} </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <h2>{{ this.important.data[this.important.data.length - 1].Titre }}</h2>
+          <p>{{ this.important.data[this.important.data.length - 1].Commentaire }} </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
       </ul>
     </div>
@@ -15,6 +15,7 @@
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
+import {isEmpty} from "lodash"
 
 export default {
   name: "Infopage",
@@ -22,43 +23,62 @@ export default {
   data() {
     return {
       important: [],
-      semaine: [],
     }
   },
 
-
   mounted() {
-    this.callapiI();
-    this.callapiS();
+    setTimeout(this.verif, 101);
+    setInterval(this.verif, 36000)
+    setInterval(this.important, 1000)
   },
+
+
 
   methods: {
     callapiI() {
+
       axios
-        .get('http://192.168.70.77:8055/items/Informations?filter[Tag][_eq]=Important')
+        .get('http://192.168.70.112:8055/items/Informations?filter[Tag][_eq]=Important')
         .then(response => (this.important = response.data))
+      setTimeout(this.callapiI, 10000);
     },
 
-    callapiS() {
-      axios
-        .get('http://192.168.70.77:8055/items/Informations?filter[Tag][_eq]=Semaine')
-        .then(response => (this.semaine = response.data))
-    },
 
     deleteI: function () {
-        if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.important.data[0].Date_de_fin) {
+      for (let i = 0; i < this.important.data.length; i++) {
+        if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.important.data[i].Date_de_fin) {
           axios
-            .delete("http://192.168.70.77:8055/items/Informations/" + this.important.data[0].id)
+            .delete("http://192.168.70.145:8055/items/Informations/" + this.important.data[i].id)
             .then(() => {
-              this.callapiJ();
+              this.callapiI();
             })
+        }
+      }
+    },
+
+    verif(){
+      if (isEmpty(this.important.data)) {
+        setTimeout(() => this.$router.push({path: '/'}), 0);
+      }else{
+          if (this.important.data[this.important.data.length - 1].status === 'published'){
+          }else{
+            setTimeout(() => this.$router.push({path: '/'}), 0);
+          }
       }
     },
   },
 
   created() {
     setTimeout(() => this.$router.push({path: '/'}), 300000);
-  }
+
+    /*setInterval(this.verif, 100)*/
+    this.callapiI();
+
+
+
+  },
+
+
 }
 
 
@@ -66,13 +86,13 @@ export default {
 
 <style scoped>
 
-.liste{
- width: 80%;
- margin: 2% auto;
+.liste {
+  width: 80%;
+  margin: 4.1% auto;
 }
 
 
-h1{
+h1 {
   padding: 2% 2%;
   background-color: #e75520;
   color: #FFFFFF;
@@ -80,13 +100,13 @@ h1{
   border-top-right-radius: 25px;
 }
 
-h2{
+h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 
-ul{
+ul {
   text-align: left;
   height: 70vh;
   background-color: #FFFFFF;
@@ -94,7 +114,7 @@ ul{
 
 }
 
-li{
+li {
   background-color: #FDF5F2;
   padding: 2% 1% 1% 1%;
   height: 30vh;
@@ -102,13 +122,13 @@ li{
 }
 
 
-li > p{
+li > p {
   padding-top: 3%;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 
-h2{
+h2 {
   margin: 0;
 }
 

@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Accueil from "../pages/Accueil";
 import Meteo from "../pages/Meteo";
 import heure from "../pages/heure";
-import SunNews from "../pages/SunNews";
 import Infopage from "../pages/Infopage";
 
 
@@ -19,7 +18,6 @@ export default new Router({
     {path: '/meteo',name: 'Meteo',component: Meteo},
     {path: '/heure',name: 'heure',component: heure},
     {path: '/Infopage',name: 'Infopage',component: Infopage},
-    {path: '/SunNews',name: 'SunNews',component: SunNews},
 
   ]
 })

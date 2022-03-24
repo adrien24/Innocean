@@ -11,9 +11,7 @@
                v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.daily[1].weather[0].icon + '.svg'">
 
           <p v-if="info">{{ info.daily[1].weather[0].description }}<br/>
-            <span v-if="info">{{ Math.round(info.daily[1].temp.min) }}°C - {{
-                Math.round(info.daily[1].temp.max)
-              }}°C</span></p>
+            <span v-if="info">{{ Math.round(info.daily[1].temp.min) }}°C - {{ Math.round(info.daily[1].temp.max) }}°C</span></p>
         </div>
       </div>
 
@@ -25,9 +23,7 @@
                v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.daily[2].weather[0].icon + '.svg'">
 
           <p v-if="info">{{ info.daily[2].weather[0].description }}<br/>
-            <span v-if="info">{{ Math.round(info.daily[2].temp.min) }}°C - {{
-                Math.round(info.daily[2].temp.max)
-              }}°C</span></p>
+            <span v-if="info">{{ Math.round(info.daily[2].temp.min) }}°C - {{ Math.round(info.daily[2].temp.max) }}°C</span></p>
         </div>
       </div>
 
@@ -39,9 +35,7 @@
                v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.daily[3].weather[0].icon + '.svg'">
 
           <p v-if="info">{{ info.daily[3].weather[0].description }}<br/>
-            <span v-if="info">{{ Math.round(info.daily[3].temp.min) }}°C - {{
-                Math.round(info.daily[3].temp.max)
-              }}°C</span></p>
+            <span v-if="info">{{ Math.round(info.daily[3].temp.min) }}°C - {{ Math.round(info.daily[3].temp.max) }}°C</span></p>
         </div>
       </div>
 
@@ -53,9 +47,7 @@
                v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.daily[4].weather[0].icon + '.svg'">
 
           <p v-if="info">{{ info.daily[4].weather[0].description }}<br/>
-            <span v-if="info">{{ Math.round(info.daily[4].temp.min) }}°C - {{
-                Math.round(info.daily[4].temp.max)
-              }}°C</span></p>
+            <span v-if="info">{{ Math.round(info.daily[4].temp.min) }}°C - {{ Math.round(info.daily[4].temp.max) }}°C</span></p>
         </div>
       </div>
 
@@ -85,12 +77,15 @@ export default {
 
   created() {
     setInterval(this.getNow, 1000);
+    setInterval(() => {
+      this.callWether();
+      this.info = info
+    }, 3600000);
     setTimeout(() => this.$router.push({path: '/Infopage'}), 60000);
   },
 
   mounted() {
     this.callWeather();
-    this.intervalFetchData();
   },
 
   methods: {
@@ -107,13 +102,6 @@ export default {
         .then(response => (this.info = response.data))
     },
   },
-
-  intervalFetchData: function () {
-    setInterval(() => {
-      this.callWether();
-      this.info = info
-    }, 3600000);
-  }
 }
 
 </script>

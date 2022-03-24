@@ -31,10 +31,9 @@ export default {
   },
 
 
-
   mounted() {
     this.myHours();
-    this.callWeather()
+    this.callWeather();
     setInterval(this.myFunction, 1000)
     setInterval(this.myHours, 1000)
   },
@@ -45,15 +44,10 @@ export default {
       let date = new Date();
       let minutes = date.getMinutes();
       let secondes = date.getSeconds();
-      let heures = date.getHours();
       if (minutes === 59 && secondes === 50) {
         setTimeout(() => this.$router.push({path: '/heure'}), 0);
       } else if (minutes === 0) {
         setTimeout(() => this.$router.push({path: '/'}), 30000);
-      }
-
-      if (heures === 9 || heures === 12 || heures === 16 && minutes === 2 && secondes === 0){
-        window.location.reload(true)
       }
     },
 
@@ -69,16 +63,15 @@ export default {
           const theme = document.getElementById('app')
           theme.setAttribute('data-theme','lightMode')
 
-
-
       } else {
         const theme = document.getElementById('app')
         theme.setAttribute('data-theme','darkMode')
-       document.getElementById("nb").style.filter = "grayscale(100%)";
+        document.getElementById("nb").style.filter = "grayscale(100%)";
       }
     },
 
-    callWeather(){
+
+  callWeather(){
       axios
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
         .then(response => (this.info = response.data))

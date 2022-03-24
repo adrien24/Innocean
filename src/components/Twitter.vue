@@ -2,7 +2,7 @@
 
   <div class="Gbloc fond" id="twitter">
     <h2>TRAFIC</h2>
-    <div class="trafic_container">
+    <div class="trafic_container" v-if="this.info.current.dt">
       <hr>
       <div v-if="myFunction()" id="light">
         <TwitterFeed
@@ -36,8 +36,11 @@ export default {
   },
 
   mounted() {
-    this.callWeather()
     setInterval(this.myFunction, 1000)
+  },
+
+  created() {
+    this.callWeather()
   },
 
   methods: {
@@ -54,9 +57,6 @@ export default {
           .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
           .then(response => (this.info = response.data))
       }
-
-
-
   }
 }
 
