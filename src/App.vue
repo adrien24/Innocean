@@ -27,6 +27,7 @@ export default {
   data() {
     return {
       info: null,
+
     }
   },
 
@@ -34,9 +35,13 @@ export default {
   mounted() {
     this.myHours();
     this.callWeather();
+    this.callWeather2();
     setInterval(this.myFunction, 1000)
     setInterval(this.myHours, 1000)
+
   },
+
+
 
   methods: {
 
@@ -53,6 +58,7 @@ export default {
 
 
     myFunction() {
+
 
       if(this.info.current.dt === this.info.current.sunset){
         window.location.reload(true)
@@ -75,7 +81,13 @@ export default {
       axios
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
         .then(response => (this.info = response.data))
-    }
+
+    },
+    callWeather2() {
+      axios
+        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=5905fcba07fbe528093032c320577407&lang=fr&units=metric')
+        .then(response => (this.info = response.data))
+    },
   }
 }
 

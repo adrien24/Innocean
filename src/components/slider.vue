@@ -1,18 +1,24 @@
 <template>
 
   <div class="sliderjour" id="sliderjour">
-    <div class="swiffy-slider slider-nav-autoplay" data-slider-nav-autoplay-interval="10000">
-      <ul class="slider-container" id="nb" >
-        <li v-for="agence in images" ><img  class="slider" :src="agence.pathLong"/></li>
-
-      </ul>
-    </div>
+     <siema ref="siema"
+            @init="init"
+            @change="change"
+            :loop="true"
+            :autoplay="true"
+            :autoplay-duration="3000"
+            class="slider-container siema" id="nb" v-for="(slider, key) in slider" :key="'D' + key">
+        <div v-for="agence in slider" v-bind:key="'7' + agence.id">
+          <img class="slider" :src="'http://192.168.70.183:8055/assets/'+ agence.Image"/>
+        </div>
+      </siema>
   </div>
 
 </template>
 
 <script>
 
+import axios from "axios";
 
 
 export default {
@@ -20,27 +26,32 @@ export default {
 
   data() {
     return {
-      images: [],
+      slider: [],
     }
+  },
+
+
+  mounted() {
+    setInterval(this.slider, 1000)
+    this.callapiI();
   },
 
   methods: {
-    importAll(r) {
-      r.keys().forEach(key => (this.images.push({pathLong: r(key), pathShort: key})));
+    callapiI() {
+      axios
+        .get('http://192.168.70.183:8055/items/Slider')
+        .then(response => (this.slider = response.data))
+        setTimeout(this.callapiI, 20000);
+    },
+
+    init() {
+    },
+
+    change() {
     },
   },
 
-  mounted() {
-    this.importAll(require.context('../assets/img/slider', true, /\.webp$/));
-    setTimeout(window.onload, 1000)
-    window.onload = function () {
-      {
-        this.swiffyslider.init(this.methods = document.body);
-      }
-    }
 
-
-  }
 }
 
 

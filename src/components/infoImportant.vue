@@ -35,7 +35,8 @@ export default {
 
   mounted() {
     this.callapiI();
-    setTimeout(this.verif, 1000);
+    setInterval(this.verif, 30000);
+
   },
 
 
@@ -43,25 +44,25 @@ export default {
 
     callapiI() {
       axios
-        .get('http://192.168.70.145:8055/items/Informations?filter[Tag][_eq]=Informations')
+        .get('http://192.168.70.183:8055/items/Information?filter[Tag][_eq]=Information')
         .then(response => (this.information = response.data))
         setTimeout(this.callapiI, 10000);
     },
 
-    verif(){
+   verif(){
 
       if (isEmpty(this.information.data)) {
-
         document.querySelector('.bas').style.display = "none"
       }else{
-
         for (let i = 0; i < this.information.data.length; i++) {
           if (this.information.data[i].status === 'published') {
-
-          } else if (this.information.data[i].status === 'Draft') {
-            let Draft = document.querySelectorAll('.Draft')
+            let published = document.querySelectorAll('.published')
+            for (let i = 0; i < published.length; i++) {
+              published[i].style.display = 'flex';
+            }
+          } else if (this.information.data[i].status === 'draft') {
+            let Draft = document.querySelectorAll('.draft')
             for (let i = 0; i < Draft.length; i++) {
-              console.log(Draft)
               Draft[i].style.display = 'none';
             }
           }
@@ -75,7 +76,7 @@ export default {
         if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.information.data[i].Date_de_fin) {
 
           axios
-            .delete("http://192.168.70.145:8055/items/Informations/" + this.information.data[i].id)
+            .delete("http://192.168.70.183:8055/items/Information" + this.information.data[i].id)
             .then(() => {
               this.callapiI();
             })

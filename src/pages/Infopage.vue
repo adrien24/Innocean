@@ -38,7 +38,7 @@ export default {
     callapiI() {
 
       axios
-        .get('http://192.168.70.112:8055/items/Informations?filter[Tag][_eq]=Important')
+        .get('http://192.168.70.183:8055/items/Information?filter[Tag][_eq]=Important')
         .then(response => (this.important = response.data))
       setTimeout(this.callapiI, 10000);
     },
@@ -48,7 +48,7 @@ export default {
       for (let i = 0; i < this.important.data.length; i++) {
         if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.important.data[i].Date_de_fin) {
           axios
-            .delete("http://192.168.70.145:8055/items/Informations/" + this.important.data[i].id)
+            .delete("http://192.168.70.183:8055/items/Information/" + this.important.data[i].id)
             .then(() => {
               this.callapiI();
             })
@@ -69,7 +69,7 @@ export default {
   },
 
   created() {
-    setTimeout(() => this.$router.push({path: '/'}), 300000);
+    setTimeout(() => this.$router.push({path: '/'}), 60000);
 
     /*setInterval(this.verif, 100)*/
     this.callapiI();

@@ -85,7 +85,8 @@ export default {
   },
 
   mounted() {
-    this.callWeather();
+    /*this.callWeather();*/
+    this.callWeather2();
   },
 
   methods: {
@@ -96,9 +97,14 @@ export default {
       this.heure = dateTime;
     },
 
-    callWeather() {
+    /*callWeather() {
       axios
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&lang=fr&units=metric&exclude=current,minutely,hourly,alerts&appid=053f63f3644c351cb877b735a83a84e8')
+        .then(response => (this.info = response.data))
+    },*/
+    callWeather2() {
+      axios
+        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&lang=fr&units=metric&exclude=current,minutely,hourly,alerts&appid=5905fcba07fbe528093032c320577407')
         .then(response => (this.info = response.data))
     },
   },
