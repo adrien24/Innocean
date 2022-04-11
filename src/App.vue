@@ -35,7 +35,7 @@ export default {
   mounted() {
     this.myHours();
     this.callWeather();
-    this.callWeather2();
+    /*this.callWeather2();*/
     setInterval(this.myFunction, 1000)
     setInterval(this.myHours, 1000)
 
@@ -83,11 +83,11 @@ export default {
         .then(response => (this.info = response.data))
 
     },
-    callWeather2() {
+    /*callWeather2() {
       axios
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=5905fcba07fbe528093032c320577407&lang=fr&units=metric')
         .then(response => (this.info = response.data))
-    },
+    },*/
   }
 }
 

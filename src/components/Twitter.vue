@@ -40,8 +40,8 @@ export default {
   },
 
   created() {
-    /*this.callWeather()*/
-    this.callWeather2()
+    this.callWeather()
+    /*this.callWeather2()*/
   },
 
   methods: {
@@ -55,16 +55,16 @@ export default {
       }
     },
 
-    /*callWeather() {
+    callWeather() {
       axios
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
         .then(response => (this.info = response.data))
-    },*/
-    callWeather2() {
+    },
+   /* callWeather2() {
       axios
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=5905fcba07fbe528093032c320577407&lang=fr&units=metric')
         .then(response => (this.info = response.data))
-    }
+    }*/
   }
 }
 

@@ -4,11 +4,11 @@
     <div class="barre">
 
       <div class="gauche" v-if="info">
-        <div v-if="info"><img class="change-size-svg" v-if="info"
+        <div v-if="info"><img class="change-size-svg"
                                v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.current.weather[0].icon + '.svg'">
          </div>
-         <p v-if="info" class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
-         <p v-if="info"> {{ info.current.weather[0].description }}</p>
+         <p  class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
+         <p> {{ info.current.weather[0].description }}</p>
       </div>
 
       <div class="centre" style="padding-left: 8%">
@@ -50,9 +50,8 @@ export default {
 
   mounted() {
     this.intervalFetchData();
-    this.verify()
     this.callWeather()
-    this.callWeather2()
+    /*this.callWeather2()*/
 
 
 
@@ -74,12 +73,12 @@ export default {
         .then(response => (this.info = response.data))
 
     },
-    callWeather2() {
+    /*callWeather2() {
       axios
         .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=5905fcba07fbe528093032c320577407&lang=fr&units=metric')
         .then(response => (this.info = response.data))
 
-    },
+    },*/
 
     intervalFetchData: function () {
       setInterval(() => {
@@ -88,11 +87,6 @@ export default {
       }, 3600000);
     },
 
-    verify() {
-      if (isEmpty(this.info)){
-        document.querySelector('.gauche').style.display = "none";
-      }
-    },
   }
 }
 

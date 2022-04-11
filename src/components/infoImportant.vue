@@ -76,7 +76,7 @@ export default {
         if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.information.data[i].Date_de_fin) {
 
           axios
-            .delete("http://192.168.70.183:8055/items/Information" + this.information.data[i].id)
+            .delete("http://192.168.70.183:8055/items/Information/" + this.information.data[i].id)
             .then(() => {
               this.callapiI();
             })

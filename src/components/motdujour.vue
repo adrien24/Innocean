@@ -33,9 +33,8 @@ export default {
   methods:{
     CallAPIJour(){
       axios
-        .get('http://192.168.70.183:8055/items/Mot_du_jour')
+        .get('http://192.168.70.183:8055/items/Mot_du_jour?limit=365')
         .then(response => (this.motdujour = response.data))
-
     },
 
     todays(){
@@ -44,7 +43,7 @@ export default {
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
     today = dd + mm;
-    this.resultat = this.motdujour.data.find(word => word.Jour === today)
+    this.resultat = this.motdujour.data.find(word => word.Jour === today);
     }
   }
 }

@@ -9,7 +9,7 @@
           <div id="annivDay">
             <dl class='anniv_place'>
               <dt>
-                {{ this.resultat}}
+
               </dt>
             </dl>
           </div>
@@ -38,7 +38,7 @@ export default {
   data(){
     return{
      anniversaire: [],
-      resultat: null,
+      resultat: '',
     }
   },
 
@@ -47,9 +47,9 @@ export default {
     setTimeout(window.onload, 1000)
     this.CallAPIAnniv();
     this.getMonday();
-    setTimeout(this.myFunctionAnniv, 5000)
-    setTimeout(this.init, 5000)
-    setTimeout(this.myAnniv, 5000)
+    setTimeout(this.myFunctionAnniv, 1000)
+    setTimeout(this.init, 1000)
+    setTimeout(this.myAnniv, 1000)
   },
 
   methods: {
@@ -89,39 +89,19 @@ export default {
       }));
 
       this.nextanniv = ordered.slice(0, 5);
-      this.nextanniv.forEach(this.myFunctionAnniv);
-      this.nowanniv = ordered.slice(0, 5);
-      this.nowanniv.forEach(this.myAnniv);
 
-
-
-      this.months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-      "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"];
-
-
-
-      this.text = "";
-      this.text1 = "";
-    },
-
-    myFunctionAnniv(item, index) {
-
-
-      let annivMonth = Number((item.Date).split("-")[0]) - 1;
-      if (this.nww === item.Date) {
-        console.log(item.Date)
-
-        return false;
-      } else {
-        for (let i = 0; i < this.nextanniv.length; i++) {
-          console.log(this.nextanniv)
-          this.resultat = this.nextanniv
-          /*this.text += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Date + "</dt>" + ' ' + "<dd>" + this.nextanniv[i].Prenom + ' ' + this.months[annivMonth] + "</dd>" + "</dl>";*/
+      for (let i = 0; i < this.nextanniv.length; i++) {
+        if (this.nww === this.nextanniv[i].Date) {
+          this.nowanniversary = "<h2 style='text-align: center'>" + "Joyeux anniversaire à" + "</h2>" + "<dl class='anniv_day_place' style='text-align: center'>" + "<span>" + this.nextanniv[0].Prenom + "</span>" + "<span>" + '&nbsp;et&nbsp;' + "</span>" + "</dl>";
+          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + this.nextanniv[i].Date +"</dd>" + "</dl>";
+          document.getElementById("annivDay").innerHTML = this.nowanniversary;
+        } else {
+          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + this.nextanniv[i].Date +"</dd>" + "</dl>";
+          document.getElementById("anniversairary").innerHTML = this.resultat;
         }
       }
-
-      document.getElementById("anniversairary").innerHTML = this.text;
     },
+
 
     getMonday(d) {
       let today = new Date();
@@ -131,13 +111,6 @@ export default {
       //   multiplied by negative 24
     },
 
-    myAnniv(item, index) {
-      if (this.nww === item.Date) {
-        /*this.text1 += "<h2 style='text-align: center'>" + "Joyeux anniversaire à" + "</h2>" + "<dl class='anniv_day_place' style='text-align: center'>" + "<span>" + item.Prenom + "</span>" + "<span>" + '&nbsp;et&nbsp;' + "</span>" + "</dl>";*/
-      }
-      document.getElementById("annivDay").innerHTML = this.text1;
-
-    }
 
   }
 }
