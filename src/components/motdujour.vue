@@ -2,11 +2,11 @@
   <div id="motdujour" class="Pbloc fond">
     <div id="mot">
       <h2>MOT DU JOUR</h2>
-      <div class="mot_container">
+      <div class="mot_container" v-if="motdujour">
         <hr>
-        <p>{{ this.resultat.fr }}</p>
-        <p>{{ this.resultat.co }}</p>
-        <p>{{ this.resultat.latin }}</p>
+        <p v-if="motdujour">{{ this.resultat.fr }}</p>
+        <p v-if="motdujour">{{ this.resultat.co }}</p>
+        <p v-if="motdujour">{{ this.resultat.latin }}</p>
       </div>
     </div>
   </div>
@@ -20,13 +20,13 @@ export default {
 
   data() {
     return {
-      motdujour: [],
-      resultat: null,
+      motdujour: '',
+      resultat: '',
     }
   },
 
   mounted() {
-    setTimeout(this.todays, 1000)
+    setTimeout(this.todays, 1000);
     this.CallAPIJour();
   },
 

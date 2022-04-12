@@ -27,7 +27,6 @@ export default {
   data() {
     return {
       info: null,
-
     }
   },
 
@@ -35,10 +34,8 @@ export default {
   mounted() {
     this.myHours();
     this.callWeather();
-    /*this.callWeather2();*/
     setInterval(this.myFunction, 1000)
     setInterval(this.myHours, 1000)
-
   },
 
 
@@ -50,9 +47,9 @@ export default {
       let minutes = date.getMinutes();
       let secondes = date.getSeconds();
       if (minutes === 59 && secondes === 50) {
-        setTimeout(() => this.$router.push({path: '/heure'}), 0);
+        setTimeout(() => this.$router.push({path: '/heure'}).catch(err => {}), 0);
       } else if (minutes === 0) {
-        setTimeout(() => this.$router.push({path: '/'}), 30000);
+        setTimeout(() => this.$router.push({path: '/'}).catch(err => {}), 30000);
       }
     },
 
@@ -63,12 +60,9 @@ export default {
       if(this.info.current.dt === this.info.current.sunset){
         window.location.reload(true)
       }
-
       if (this.info.current.dt >= this.info.current.sunrise && this.info.current.dt < this.info.current.sunset) {
-
           const theme = document.getElementById('app')
           theme.setAttribute('data-theme','lightMode')
-
       } else {
         const theme = document.getElementById('app')
         theme.setAttribute('data-theme','darkMode')

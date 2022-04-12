@@ -1,7 +1,7 @@
 <template>
 <div id="infoImportant">
 
-  <div class="bas">
+  <div id="banniere" class="bas">
     <dl>
       <dt>Infos</dt>
       <dd style="display: flex" v-if="information">
@@ -35,8 +35,8 @@ export default {
 
   mounted() {
     this.callapiI();
-    setInterval(this.verif, 30000);
-
+    setInterval(this.verif, 5000);
+    setInterval(this.information, 1000)
   },
 
 
@@ -52,8 +52,13 @@ export default {
    verif(){
 
       if (isEmpty(this.information.data)) {
-        document.querySelector('.bas').style.display = "none"
+        document.getElementById('banniere').classList.add('remove')
+        document.getElementById('banniere').classList.remove('show')
+        console.log('oui');
       }else{
+        document.getElementById('banniere').classList.add('show')
+        document.getElementById('banniere').classList.remove('remove')
+        console.log('non');
         for (let i = 0; i < this.information.data.length; i++) {
           if (this.information.data[i].status === 'published') {
             let published = document.querySelectorAll('.published')
@@ -91,6 +96,14 @@ export default {
 </script>
 
 <style scoped>
+
+.show{
+  display: flex!important;
+}
+
+.remove{
+  display: none!important;
+}
 
 .bas {
   display: flex;

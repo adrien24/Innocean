@@ -41,7 +41,7 @@ export default {
   },
 
   created(){
-      setTimeout(() => this.$router.push({path: '/meteo'}), 300000);
+      setTimeout(() => this.$router.push({path: '/meteo'}).catch(err => {}), 300000);
     },
 }
 

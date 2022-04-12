@@ -81,12 +81,11 @@ export default {
       this.callWether();
       this.info = info
     }, 3600000);
-    setTimeout(() => this.$router.push({path: '/Infopage'}), 60000);
+    setTimeout(() => this.$router.push({path: '/Infopage'}).catch(err => {}), 60000);
   },
 
   mounted() {
     this.callWeather();
-    /*this.callWeather2();*/
   },
 
   methods: {

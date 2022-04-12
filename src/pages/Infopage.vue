@@ -69,13 +69,8 @@ export default {
   },
 
   created() {
-    setTimeout(() => this.$router.push({path: '/'}), 60000);
-
-    /*setInterval(this.verif, 100)*/
+    setTimeout(() => this.$router.push({path: '/'}).catch(err => {}), 60000);
     this.callapiI();
-
-
-
   },
 
 

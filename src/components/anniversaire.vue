@@ -38,7 +38,7 @@ export default {
   data(){
     return{
      anniversaire: [],
-      resultat: '',
+     resultat: '',
     }
   },
 
@@ -47,9 +47,7 @@ export default {
     setTimeout(window.onload, 1000)
     this.CallAPIAnniv();
     this.getMonday();
-    setTimeout(this.myFunctionAnniv, 1000)
     setTimeout(this.init, 1000)
-    setTimeout(this.myAnniv, 1000)
   },
 
   methods: {
@@ -90,18 +88,21 @@ export default {
 
       this.nextanniv = ordered.slice(0, 5);
 
+      this.months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+        "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"];
+
       for (let i = 0; i < this.nextanniv.length; i++) {
+        this.annivMonth = Number((this.nextanniv[i].Date).split("-")[0]) - 1;
         if (this.nww === this.nextanniv[i].Date) {
           this.nowanniversary = "<h2 style='text-align: center'>" + "Joyeux anniversaire à" + "</h2>" + "<dl class='anniv_day_place' style='text-align: center'>" + "<span>" + this.nextanniv[0].Prenom + "</span>" + "<span>" + '&nbsp;et&nbsp;' + "</span>" + "</dl>";
-          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + this.nextanniv[i].Date +"</dd>" + "</dl>";
+          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + (this.nextanniv[i].Date).split("-")[1] + ' ' + this.months[this.annivMonth] +"</dd>" + "</dl>";
           document.getElementById("annivDay").innerHTML = this.nowanniversary;
         } else {
-          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + this.nextanniv[i].Date +"</dd>" + "</dl>";
+          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + (this.nextanniv[i].Date).split("-")[1] + ' ' + this.months[this.annivMonth] + "</dd>" + "</dl>";
           document.getElementById("anniversairary").innerHTML = this.resultat;
         }
       }
     },
-
 
     getMonday(d) {
       let today = new Date();
@@ -110,8 +111,6 @@ export default {
         today.setHours(-24 * (day - 1));   // Set the hours to day number minus 1
       //   multiplied by negative 24
     },
-
-
   }
 }
 
