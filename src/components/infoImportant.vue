@@ -54,11 +54,9 @@ export default {
       if (isEmpty(this.information.data)) {
         document.getElementById('banniere').classList.add('remove')
         document.getElementById('banniere').classList.remove('show')
-        console.log('oui');
       }else{
         document.getElementById('banniere').classList.add('show')
         document.getElementById('banniere').classList.remove('remove')
-        console.log('non');
         for (let i = 0; i < this.information.data.length; i++) {
           if (this.information.data[i].status === 'published') {
             let published = document.querySelectorAll('.published')

@@ -27,8 +27,6 @@ export default {
   },
 
   mounted() {
-    setTimeout(this.verif, 101);
-    setInterval(this.verif, 36000)
     setInterval(this.important, 1000)
   },
 
@@ -56,16 +54,7 @@ export default {
       }
     },
 
-    verif(){
-      if (isEmpty(this.important.data)) {
-        setTimeout(() => this.$router.push({path: '/'}), 0);
-      }else{
-          if (this.important.data[this.important.data.length - 1].status === 'published'){
-          }else{
-            setTimeout(() => this.$router.push({path: '/'}), 0);
-          }
-      }
-    },
+
   },
 
   created() {

@@ -59,6 +59,7 @@
 <script>
 
 import axios from "axios";
+import {isEmpty} from "lodash";
 
 const dayjs = require("dayjs");
 require('dayjs/locale/fr')
@@ -72,6 +73,7 @@ export default {
   data() {
     return {
       info: null,
+      important: [],
     }
   },
 
@@ -81,11 +83,15 @@ export default {
       this.callWether();
       this.info = info
     }, 3600000);
-    setTimeout(() => this.$router.push({path: '/Infopage'}).catch(err => {}), 60000);
+
   },
 
   mounted() {
     this.callWeather();
+    setTimeout(this.verif, 200);
+    setInterval(this.verif, 5000);
+    setInterval(this.important, 1000);
+    this.callapiI();
   },
 
   methods: {
@@ -94,6 +100,26 @@ export default {
       const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       const dateTime = ' ' + time;
       this.heure = dateTime;
+    },
+
+    callapiI() {
+
+      axios
+        .get('http://192.168.70.183:8055/items/Information?filter[Tag][_eq]=Important')
+        .then(response => (this.important = response.data))
+        setTimeout(this.callapiI, 10000);
+    },
+
+    verif(){
+      if (isEmpty(this.important.data)) {
+        setTimeout(() => this.$router.push({path: '/'}), 60000);
+      }else{
+        if (this.important.data[this.important.data.length - 1].status === 'published'){
+          setTimeout(() => this.$router.push({path: '/Infopage'}).catch(err => {}), 60000);
+        }else{
+          setTimeout(() => this.$router.push({path: '/'}), 60000);
+        }
+      }
     },
 
     callWeather() {
