@@ -15,7 +15,6 @@
       </dd>
       </dl>
     </div>
-
   </div>
 </template>
 
@@ -32,12 +31,12 @@ export default {
   },
   mounted() {
     this.callapiI();
-    setTimeout(this.verif, 1000);
+    setInterval(this.verif, 5000);
   },
   methods: {
     callapiI() {
       axios
-        .get('https://6ooontrv.directus.app/items/Information?filter[Tag][_eq]=Information')
+        .get('https://6ooontrv.directus.app/items/Information?filter[Tag][_eq]=Information&filter[status][_eq]=published')
         .then(response => (this.information = response.data))
         setTimeout(this.callapiI, 10000);
     },
@@ -45,19 +44,7 @@ export default {
       if (isEmpty(this.information.data)) {
         document.querySelector('.bas').style.display = "none"
       }else{
-        for (let i = 0; i < this.information.data.length; i++) {
-          if (this.information.data[i].status === 'published') {
-            let published = document.querySelectorAll('.published')
-            for (let i = 0; i < published.length; i++) {
-              published[i].style.display = 'flex!important';
-            }
-          } else if (this.information.data[i].status === 'draft') {
-            let Draft = document.querySelectorAll('.draft')
-            for (let i = 0; i < Draft.length; i++) {
-              Draft[i].style.display = 'none';
-            }
-          }
-        }
+        document.querySelector('.bas').style.display = "flex"
       }
     },
     deleteI: function () {

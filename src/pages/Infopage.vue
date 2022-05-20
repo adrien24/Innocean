@@ -11,7 +11,7 @@
       </ul>
 
       <div class="imageinfo">
-        <img :src="'http://192.168.70.183:8055/assets/' + this.important.data[this.important.data.length - 1].image">
+        <img :src="'https://6ooontrv.directus.app/assets/' + this.important.data[this.important.data.length - 1].image">
       </div>
       </div>
     </div>
