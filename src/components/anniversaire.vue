@@ -7,14 +7,14 @@
         <hr>
         <div class="bloc_container_frst">
           <div id="annivDay">
-            <dl class='anniv_place'>
+            <dl class='anniv_place gras'>
               <dt>
 
               </dt>
             </dl>
           </div>
         </div>
-        <div class="bloc_container_scnd" style="width: 90%;">
+        <div class="bloc_container_scnd gras" style="width: 90%;">
           <ul id="anniversairary" style="width: 100%;">
           </ul>
         </div>
@@ -44,19 +44,24 @@ export default {
 
 
   mounted() {
-    setTimeout(window.onload, 1000)
+
+  },
+
+  created() {
+    setTimeout(this.init, 1000)
+    setTimeout(this.CallAPIAnniv, 2000)
     this.CallAPIAnniv();
     this.getMonday();
-    setTimeout(this.init, 1000)
+    setTimeout(window.onload, 1000)
   },
 
   methods: {
 
     CallAPIAnniv() {
       axios
-        .get('http://192.168.70.183:8055/items/Anniversaires')
+        .get('https://6ooontrv.directus.app/items/Anniversaire')
         .then(response => (this.anniversaire = response.data))
-      setTimeout(this.CallAPIAnniv, 2000)
+
 
 
 
@@ -95,10 +100,10 @@ export default {
         this.annivMonth = Number((this.nextanniv[i].Date).split("-")[0]) - 1;
         if (this.nww === this.nextanniv[i].Date) {
           this.nowanniversary = "<h2 style='text-align: center'>" + "Joyeux anniversaire à" + "</h2>" + "<dl class='anniv_day_place' style='text-align: center'>" + "<span>" + this.nextanniv[0].Prenom + "</span>" + "<span>" + '&nbsp;et&nbsp;' + "</span>" + "</dl>";
-          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + (this.nextanniv[i].Date).split("-")[1] + ' ' + this.months[this.annivMonth] +"</dd>" + "</dl>";
+          this.resultat += "<dl class='anniv_place'>" + "<dt class='gras'>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + (this.nextanniv[i].Date).split("-")[1] + ' ' + this.months[this.annivMonth] +"</dd>" + "</dl>";
           document.getElementById("annivDay").innerHTML = this.nowanniversary;
         } else {
-          this.resultat += "<dl class='anniv_place'>" + "<dt>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + (this.nextanniv[i].Date).split("-")[1] + ' ' + this.months[this.annivMonth] + "</dd>" + "</dl>";
+          this.resultat += "<dl class='anniv_place'>" + "<dt class='gras'>" + this.nextanniv[i].Prenom + "</dt>" + ' ' + "<dd>" + (this.nextanniv[i].Date).split("-")[1] + ' ' + this.months[this.annivMonth] + "</dd>" + "</dl>";
           document.getElementById("anniversairary").innerHTML = this.resultat;
         }
       }

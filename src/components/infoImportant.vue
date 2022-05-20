@@ -1,67 +1,55 @@
 <template>
-<div id="infoImportant">
+  <div id="infoImportant">
 
-  <div id="banniere" class="bas">
+    <div class="bas">
     <dl>
       <dt>Infos</dt>
       <dd style="display: flex" v-if="information">
-        <marquee-text :duration="15" v-for="(information, key) in information" :key="'D' + key" >
+        <marquee :duration="15" v-for="(information, key) in information" :key="'D' + key" >
+        <div class="flex">
           <div  v-for="value in information" v-bind:key="'7' + value.id" v-if="value.Date_de_debut <= dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr')" :v-if="deleteI()" :class="value.status">
-              &nbsp;<span>{{ value.Titre }}&nbsp;:&nbsp;</span><p v-if="value">{{ value.Commentaire }} </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;<span>{{ value.Titre }}</span>&nbsp;:&nbsp;<p v-if="value">{{ value.Commentaire }} </p>
           </div>
-      </marquee-text>
+          </div>
+      </marquee>
       </dd>
-    </dl>
-  </div>
+      </dl>
+    </div>
 
-</div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
 import {isEmpty} from "lodash";
-
 export default {
   name: "infoImportant",
-
   data() {
     return {
       information: [],
     }
   },
-
-
-
   mounted() {
     this.callapiI();
-    setInterval(this.verif, 5000);
-    setInterval(this.information, 1000)
+    setTimeout(this.verif, 1000);
   },
-
-
   methods: {
-
     callapiI() {
       axios
-        .get('http://192.168.70.183:8055/items/Information?filter[Tag][_eq]=Information')
+        .get('https://6ooontrv.directus.app/items/Information?filter[Tag][_eq]=Information')
         .then(response => (this.information = response.data))
         setTimeout(this.callapiI, 10000);
     },
-
-   verif(){
-
+    verif(){
       if (isEmpty(this.information.data)) {
-        document.getElementById('banniere').classList.add('remove')
-        document.getElementById('banniere').classList.remove('show')
+        document.querySelector('.bas').style.display = "none"
       }else{
-        document.getElementById('banniere').classList.add('show')
-        document.getElementById('banniere').classList.remove('remove')
         for (let i = 0; i < this.information.data.length; i++) {
           if (this.information.data[i].status === 'published') {
             let published = document.querySelectorAll('.published')
             for (let i = 0; i < published.length; i++) {
-              published[i].style.display = 'flex';
+              published[i].style.display = 'flex!important';
             }
           } else if (this.information.data[i].status === 'draft') {
             let Draft = document.querySelectorAll('.draft')
@@ -72,35 +60,42 @@ export default {
         }
       }
     },
-
     deleteI: function () {
-
       for (let i = 0; i < this.information.data.length; i++) {
         if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.information.data[i].Date_de_fin) {
-
           axios
-            .delete("http://192.168.70.183:8055/items/Information/" + this.information.data[i].id)
+            .delete("https://6ooontrv.directus.app/items/Information/" + this.information.data[i].id)
             .then(() => {
               this.callapiI();
             })
         }
       }
       }
-
     },
-
 }
 
 </script>
 
 <style scoped>
 
-.show{
-  display: flex!important;
+.show {
+  display: flex !important;
 }
 
-.remove{
-  display: none!important;
+.remove {
+  display: none !important;
+}
+
+.flex{
+  display: flex;
+}
+
+.published{
+  display: flex;
+}
+
+.draft{
+  display: none;
 }
 
 .bas {
@@ -109,45 +104,65 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
-  background: lightgrey;
+  height: 70px;
 }
 
-span{
-  color: #e75520;
-  font-size: 1.5rem;
+.published{
+  display: flex;
+  align-items: center;
 }
-p{
+
+span {
+  color: #FFFFFF;
+  background-color: #E6551F;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 0 5% 0 5%;
+  margin-left: 3%;
+}
+
+p {
   padding-right: 20px;
   font-size: 1.5rem;
 }
 
-dl{
+dl {
   display: flex;
   color: #FFFFFF;
   width: 100%;
+  height: 70px;
 
 }
-dt{
-  padding: 13px 22px 0 20px;
+
+dt {
+  padding: 0px 22px 0 20px;
   background-color: #E6551F;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 
-dd{
-  padding: 11px 20px 0 20px;
+dd {
   width: 100%;
   background-color: #F6BA9A;
 }
 
-.marquee-text-text{
+marquee {
   display: flex;
+  color: #0f1011;
+  align-self: center;
+  font-size: 1.7rem;
 }
 
-.marquee-text-text > div{
+.marquee > div {
   display: flex;
 }
-
-
 
 
 </style>

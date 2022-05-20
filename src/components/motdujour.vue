@@ -2,7 +2,7 @@
   <div id="motdujour" class="Pbloc fond">
     <div id="mot">
       <h2>MOT DU JOUR</h2>
-      <div class="mot_container" v-if="motdujour">
+      <div class="mot_container gras" v-if="motdujour">
         <hr>
         <p v-if="motdujour">{{ this.resultat.fr }}</p>
         <p v-if="motdujour">{{ this.resultat.co }}</p>
@@ -33,7 +33,7 @@ export default {
   methods:{
     CallAPIJour(){
       axios
-        .get('http://192.168.70.183:8055/items/Mot_du_jour?limit=365')
+        .get('https://6ooontrv.directus.app/items/Mot_Du_Jour?limit=365')
         .then(response => (this.motdujour = response.data))
     },
 

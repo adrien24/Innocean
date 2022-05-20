@@ -1,14 +1,14 @@
 <template>
 
   <div id="jour">
-    <div class="barre">
+    <div class="barre" >
 
       <div class="gauche" v-if="info">
         <div v-if="info"><img class="change-size-svg"
-                               v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.current.weather[0].icon + '.svg'">
-         </div>
-         <p  class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
-         <p> {{ info.current.weather[0].description }}</p>
+                              v-bind:src="'https://web.innocean.app/rocket/adrien/innocean/img/meteo/' + info.current.weather[0].icon + '.svg'">
+        </div>
+        <p class="gras">{{ Math.round(info.current.temp) }}°C&nbsp;</p>
+        <p> {{ info.current.weather[0].description }}</p>
       </div>
 
       <div class="centre" style="padding-left: 8%">
@@ -29,33 +29,28 @@
 <script>
 import axios from "axios";
 import {isEmpty} from "lodash"
+
 const dayjs = require("dayjs");
 require('dayjs/locale/fr')
 dayjs.locale('fr')
+
 
 export default {
 
   data() {
     return {
       heure: "",
-      info: null,
+      info: '',
+      temp: '',
+      logo: '',
+      weather: '',
     }
   },
 
   created() {
     setInterval(this.getNow, 1000);
-
-
+    this.callWeather();
   },
-
-  mounted() {
-    this.intervalFetchData();
-    this.callWeather()
-    /*this.callWeather2()*/
-
-
-
-},
 
   methods: {
     getNow: function () {
@@ -65,29 +60,18 @@ export default {
       this.heure = dateTime;
     },
 
-
-
     callWeather() {
-      axios
-        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=053f63f3644c351cb877b735a83a84e8&lang=fr&units=metric')
-        .then(response => (this.info = response.data))
+      let date = new Date();
+      let hours = date.getHours();
+      if (hours < 19 && hours > 8) {
+        axios
+          .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=5905fcba07fbe528093032c320577407&lang=fr&units=metric')
+          .then(response => (this.info = response.data));
+          localStorage.setItem('letemp', this.info.current.temp)
+      }
 
     },
-    /*callWeather2() {
-      axios
-        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&appid=5905fcba07fbe528093032c320577407&lang=fr&units=metric')
-        .then(response => (this.info = response.data))
-
-    },*/
-
-    intervalFetchData: function () {
-      setInterval(() => {
-        this.callWeather();
-        this.info = info
-      }, 3600000);
-    },
-
-  }
+  },
 }
 
 

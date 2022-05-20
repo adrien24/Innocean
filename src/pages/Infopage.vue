@@ -1,13 +1,19 @@
 <template>
   <div id="infopage">
     <div class="liste">
-      <h1>Informations</h1>
+
+      <div class="info" style="width: 1000px;">
       <ul>
         <li v-if="this.important.data[0].Date_de_debut <= dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr')" :v-if="deleteI(this.important.data[0].id)">
           <h2>{{ this.important.data[this.important.data.length - 1].Titre }}</h2>
           <p>{{ this.important.data[this.important.data.length - 1].Commentaire }} </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
       </ul>
+
+      <div class="imageinfo">
+        <img :src="'http://192.168.70.183:8055/assets/' + this.important.data[this.important.data.length - 1].image">
+      </div>
+      </div>
     </div>
   </div>
 </template>
@@ -15,7 +21,6 @@
 <script>
 import axios from "axios";
 import dayjs from "dayjs";
-import {isEmpty} from "lodash"
 
 export default {
   name: "Infopage",
@@ -26,19 +31,16 @@ export default {
     }
   },
 
-  mounted() {
-    setInterval(this.important, 1000)
-  },
+
 
 
 
   methods: {
     callapiI() {
-
       axios
-        .get('http://192.168.70.183:8055/items/Information?filter[Tag][_eq]=Important')
+        .get('https://6ooontrv.directus.app/items/Information?filter[Tag][_eq]=Important')
         .then(response => (this.important = response.data))
-      setTimeout(this.callapiI, 10000);
+
     },
 
 
@@ -46,7 +48,7 @@ export default {
       for (let i = 0; i < this.important.data.length; i++) {
         if (dayjs().format('YYYY-MM-DDTHH:mm:ss', 'fr') >= this.important.data[i].Date_de_fin) {
           axios
-            .delete("http://192.168.70.183:8055/items/Information/" + this.important.data[i].id)
+            .delete("https://6ooontrv.directus.app/items/Information/" + this.important.data[i].id)
             .then(() => {
               this.callapiI();
             })
@@ -75,6 +77,24 @@ export default {
   margin: 4.1% auto;
 }
 
+.info{
+  display: flex;
+  width: 50%;
+}
+
+
+
+.imageinfo{
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  justify-content: center
+}
+
+.imageinfo img{
+  width: 1000px
+}
+
 
 h1 {
   padding: 2% 2%;
@@ -91,28 +111,34 @@ h2 {
 
 
 ul {
+  border-radius: 20px;
   text-align: left;
-  height: 70vh;
+  height: 80vh;
   background-color: #FFFFFF;
-  padding: 12.5% 2% 0 2%;
+  padding: 7% 2% 0 2%;
+  width: 100%;
 
 }
 
 li {
-  background-color: #FDF5F2;
-  padding: 2% 1% 1% 1%;
-  height: 30vh;
+  text-align: left;
+  padding: 2% 1% 1% 4%;
+  height: 70vh;
   border-radius: 15px;
 }
 
 
 li > p {
   padding-top: 3%;
+  padding-right: 2%;
   font-size: 2rem;
+  font-weight: 800;
+  width: 600px
 }
 
 
 h2 {
+  text-align: left;
   margin: 0;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div id="meteo">
     <h1 style="text-align: center;">METEO</h1>
-    <div class="container">
+    <div class="container gras">
 
       <div class="day">
         <h2>{{ dayjs().add(1, 'day').format('dddd') }}</h2>
@@ -79,19 +79,16 @@ export default {
 
   created() {
     setInterval(this.getNow, 1000);
-    setInterval(() => {
-      this.callWether();
-      this.info = info
-    }, 3600000);
+    this.callWeather();
+    this.callapiI();
+    setTimeout(this.verif,1000);
 
   },
 
   mounted() {
-    this.callWeather();
-    setTimeout(this.verif, 200);
-    setInterval(this.verif, 5000);
-    setInterval(this.important, 1000);
-    this.callapiI();
+
+
+
   },
 
   methods: {
@@ -100,14 +97,22 @@ export default {
       const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       const dateTime = ' ' + time;
       this.heure = dateTime;
+
+     /* let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let secondes = date.getSeconds();
+      if ( hours === 15 && minutes === 19 && secondes === 0) {
+        setTimeout(this.callWeather,1000)
+      }*/
     },
 
     callapiI() {
 
       axios
-        .get('http://192.168.70.183:8055/items/Information?filter[Tag][_eq]=Important')
+        .get('https://6ooontrv.directus.app/items/Information?filter[Tag][_eq]=Important')
         .then(response => (this.important = response.data))
-        setTimeout(this.callapiI, 10000);
+
     },
 
     verif(){
@@ -121,17 +126,15 @@ export default {
         }
       }
     },
-
     callWeather() {
-      axios
-        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&lang=fr&units=metric&exclude=current,minutely,hourly,alerts&appid=053f63f3644c351cb877b735a83a84e8')
-        .then(response => (this.info = response.data))
+      let date = new Date();
+      let hours = date.getHours();
+      if (hours < 19 && hours > 8) {
+        axios
+          .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&lang=fr&units=metric&exclude=current,minutely,hourly,alerts&appid=5905fcba07fbe528093032c320577407')
+          .then(response => (this.info = response.data))
+      }
     },
-    /*callWeather2() {
-      axios
-        .get('https://api.openweathermap.org/data/2.5/onecall?lat=48.89510058767381&lon=2.287797034214823&lang=fr&units=metric&exclude=current,minutely,hourly,alerts&appid=5905fcba07fbe528093032c320577407')
-        .then(response => (this.info = response.data))
-    },*/
   },
 }
 

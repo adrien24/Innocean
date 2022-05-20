@@ -6,10 +6,10 @@
 
 
 :root{
-  --title: clamp(3rem, 3vw - 2rem, 4rem);
-  --heure: clamp(12rem, 24vw - 16rem, 24rem);
-  --subtitle: clamp(1.5rem, 3vw - 2rem, 4rem);
-  --paragraphe: clamp(0.75rem, 2.75vw - 2rem, 3rem);
+  --title: clamp(1rem, 0.6296rem + 1.9753vw, 3rem);
+  --heure: 12rem;
+  --subtitle: clamp(1rem, 0.8833rem + 0.6222vw, 1.875rem);
+  --paragraphe: clamp(1rem, 0.8833rem + 0.6222vw, 1.875rem);
 
 }
 

@@ -9,7 +9,7 @@
           <GmapMap
             :center='center'
             :zoom='11'
-            style='width:100%;  height: 45vh;'
+            style='width:100%;  height: 40vh;'
             ref="roadmap"
             :options="{ mapId: 'a133224cece007d1', streetViewControl: false, mapTypeControl: false, scaleControl: false,
             zoomControl: false, disableDefaultUI: true, keyboardShortcuts: false, }">
@@ -90,7 +90,7 @@ export default {
     this.callHavas();
     this.callKia();
     this.callHyundai();
-    this.intervalFetchData();
+
   },
 
   mounted() {
@@ -102,8 +102,6 @@ export default {
     this.$refs.roadmap.$mapPromise.then((map) => {
       map.panTo({lat: 48.86557129647681, lng: 2.308111067807308})
     })
-
-    // Run the functions once when mounted
 
   },
 
@@ -120,32 +118,37 @@ export default {
     },
 
     callHavas: function () {
-      axios
-        .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.880589206580616,2.244400876233613/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
-        .then(response => (this.havas = response.data))
+      let date = new Date();
+      let hours = date.getHours();
+      if (hours < 19 && hours > 8) {
+        axios
+          .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.880589206580616,2.244400876233613/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
+          .then(response => (this.havas = response.data))
+      }
     },
     callKia: function () {
-      axios
-        .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.887380083145864,2.1652471948053527/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
-        .then(response => (this.kia = response.data))
+      let date = new Date();
+      let hours = date.getHours();
+      if (hours < 19 && hours > 8) {
+        axios
+          .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.887380083145864,2.1652471948053527/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
+          .then(response => (this.kia = response.data))
+      }
     },
     callHyundai: function () {
-      axios
-        .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.90558099727266,2.238146178011094/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
-        .then(response => (this.hyundai = response.data))
+      let date = new Date();
+      let hours = date.getHours();
+      if (hours < 19 && hours > 8) {
+        axios
+          .get('https://api.tomtom.com/routing/1/calculateRoute/48.898017800974586,2.279446246633403:48.90558099727266,2.238146178011094/json?key=mmj9TrjzwQ6DRXc7jhczdus9kLXN9S3e')
+          .then(response => (this.hyundai = response.data))
+      }
     },
-
-    intervalFetchData: function () {
-      setInterval(() => {
-        this.callHavas();
-        this.callKia();
-        this.callHyundai();
-      }, 1200000);
-    }
   },
 
 
   computed: {
+
     time() {
       setInterval(() => {
         this.time
