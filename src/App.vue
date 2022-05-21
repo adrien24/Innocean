@@ -48,14 +48,14 @@ export default {
     callapiI() {
 
       axios
-        .get('http://192.168.70.183:8055/items/Information?filter[Tag][_eq]=Important')
+        .get('https://6ooontrv.directus.app/items/Information?filter[Tag][_eq]=Important')
         .then(response => (this.important = response.data))
 
     },
 
     callapiS() {
       axios
-        .get('http://192.168.70.183:8055/items/Slider')
+        .get('https://6ooontrv.directus.app/items/Slider')
         .then(response => (this.slider = response.data))
       setTimeout(this.callapiI, 20000);
     },
